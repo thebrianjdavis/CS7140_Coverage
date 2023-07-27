@@ -1,0 +1,144 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > iFlightDAO</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">WrightFlightManager.DAO</a>
+</div>
+
+<h1>Coverage Summary for Class: iFlightDAO (WrightFlightManager.DAO)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+</tr>
+<tr>
+  <td class="name">iFlightDAO</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package WrightFlightManager.DAO;
+&nbsp;
+&nbsp;import WrightFlightManager.MODEL.Flight;
+&nbsp;
+&nbsp;import java.util.HashMap;
+&nbsp;
+&nbsp;/**
+&nbsp; * @interface iFlightDAO
+&nbsp; * @brief This interface defines the contract for managing flights using a
+&nbsp;data access object (DAO) approach.
+&nbsp; *
+&nbsp; * The iFlightDAO interface provides a set of methods for performing CRUD
+&nbsp;(Create, Read, Update, Delete) operations
+&nbsp; * related to the &quot;Flight&quot; entity. Classes that implement this interface
+&nbsp;are expected to provide concrete
+&nbsp; * implementations for these methods, allowing interaction with a data
+&nbsp;storage system for managing flights.
+&nbsp; */
+&nbsp;public interface iFlightDAO {
+&nbsp;
+&nbsp;    /**
+&nbsp;     * @brief Adds a new flight to the data storage.
+&nbsp;     *
+&nbsp;     * This method adds a new flight to the data storage (e.g., a file or
+&nbsp;    database) if the flight number is not
+&nbsp;     * already present in the data storage.
+&nbsp;     *
+&nbsp;     * @param newFlight The Flight object representing the new flight to
+&nbsp;    be added.
+&nbsp;     * @return true if the flight was successfully added, false otherwise.
+&nbsp;     */
+&nbsp;    boolean addNewFlight(Flight newFlight);
+&nbsp;
+&nbsp;    /**
+&nbsp;     * @brief Retrieves all flights from the data storage.
+&nbsp;     *
+&nbsp;     * This method retrieves all flights from the data storage and returns
+&nbsp;    them as a HashMap, where the keys
+&nbsp;     * are flight numbers (as Strings) and the values are Flight objects.
+&nbsp;     *
+&nbsp;     * @return A HashMap containing all Flights, where the keys are flight
+&nbsp;    numbers (as Strings) and the values
+&nbsp;     * are Flight objects.
+&nbsp;     */
+&nbsp;    HashMap&lt;String, Flight&gt; getAllFlights();
+&nbsp;
+&nbsp;    /**
+&nbsp;     * @brief Updates an existing flight in the data storage.
+&nbsp;     *
+&nbsp;     * This method updates an existing flight in the data storage based on
+&nbsp;    the information provided in the
+&nbsp;     * updatedFlight parameter. The update is performed based on the
+&nbsp;    flight&#39;s unique identifier (flight number).
+&nbsp;     *
+&nbsp;     * @param updatedFlight The Flight object representing the updated
+&nbsp;    flight information.
+&nbsp;     * @return true if the flight was successfully updated, false
+&nbsp;    otherwise.
+&nbsp;     */
+&nbsp;    boolean updateFlight(Flight updatedFlight);
+&nbsp;
+&nbsp;    /**
+&nbsp;     * @brief Deletes a flights from the data storage.
+&nbsp;     *
+&nbsp;     * This method deletes the specified flight from the data storage
+&nbsp;    based on the information provided
+&nbsp;     * in the flightToDelete parameter. The deletion is performed based on
+&nbsp;    the flight&#39;s unique identifier
+&nbsp;     * (flight number).
+&nbsp;     *
+&nbsp;     * @param flightToDelete The Role object representing the role to be
+&nbsp;    deleted.
+&nbsp;     * @return true if the role was successfully deleted, false otherwise.
+&nbsp;     */
+&nbsp;    boolean deleteFlight(Flight flightToDelete);
+&nbsp;}
+&nbsp;
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-07-27 15:40</div>
+</div>
+</body>
+</html>

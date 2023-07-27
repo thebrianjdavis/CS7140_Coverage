@@ -1,0 +1,211 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > PassengerAccountCreationView</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">WrightFlightManager.GUI</a>
+</div>
+
+<h1>Coverage Summary for Class: PassengerAccountCreationView (WrightFlightManager.GUI)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">PassengerAccountCreationView</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/37)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">PassengerAccountCreationView$1</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/8)
+  </span>
+</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/4)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/45)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package WrightFlightManager.GUI;
+&nbsp;
+&nbsp;import javax.swing.*;
+&nbsp;import java.awt.event.ActionEvent;
+&nbsp;import java.awt.event.ActionListener;
+&nbsp;import java.io.FileWriter;
+&nbsp;import java.io.IOException;
+&nbsp;
+&nbsp;public class PassengerAccountCreationView extends JFrame {
+&nbsp;    private JLabel nameLabel;
+&nbsp;    private JTextField nameField;
+&nbsp;    private JLabel emailLabel;
+&nbsp;    private JTextField emailField;
+&nbsp;    private JLabel passwordLabel;
+&nbsp;    private JPasswordField passwordField;
+&nbsp;    private JButton createAccountButton;
+&nbsp;
+<b class="nc">&nbsp;    public PassengerAccountCreationView () {</b>
+<b class="nc">&nbsp;        setTitle(&quot;Passenger Account Creation&quot;);</b>
+<b class="nc">&nbsp;        setLayout(null);</b>
+&nbsp;
+<b class="nc">&nbsp;        nameLabel = new JLabel(&quot;Name:&quot;);</b>
+<b class="nc">&nbsp;        nameLabel.setBounds(20, 20, 80, 25);</b>
+<b class="nc">&nbsp;        add(nameLabel);</b>
+&nbsp;
+<b class="nc">&nbsp;        nameField = new JTextField();</b>
+<b class="nc">&nbsp;        nameField.setBounds(100, 20, 200, 25);</b>
+<b class="nc">&nbsp;        add(nameField);</b>
+&nbsp;
+<b class="nc">&nbsp;        emailLabel = new JLabel(&quot;Email:&quot;);</b>
+<b class="nc">&nbsp;        emailLabel.setBounds(20, 60, 80, 25);</b>
+<b class="nc">&nbsp;        add(emailLabel);</b>
+&nbsp;
+<b class="nc">&nbsp;        emailField = new JTextField();</b>
+<b class="nc">&nbsp;        emailField.setBounds(100, 60, 200, 25);</b>
+<b class="nc">&nbsp;        add(emailField);</b>
+&nbsp;
+<b class="nc">&nbsp;        passwordLabel = new JLabel(&quot;Password:&quot;);</b>
+<b class="nc">&nbsp;        passwordLabel.setBounds(20, 100, 80, 25);</b>
+<b class="nc">&nbsp;        add(passwordLabel);</b>
+&nbsp;
+<b class="nc">&nbsp;        passwordField = new JPasswordField();</b>
+<b class="nc">&nbsp;        passwordField.setBounds(100, 100, 200, 25);</b>
+<b class="nc">&nbsp;        add(passwordField);</b>
+&nbsp;
+<b class="nc">&nbsp;        createAccountButton = new JButton(&quot;Create Account&quot;);</b>
+<b class="nc">&nbsp;        createAccountButton.setBounds(20, 140, 280, 25);</b>
+<b class="nc">&nbsp;        createAccountButton.addActionListener(new ActionListener() {</b>
+&nbsp;            @Override
+&nbsp;            public void actionPerformed(ActionEvent e) {
+<b class="nc">&nbsp;                String name = nameField.getText();</b>
+<b class="nc">&nbsp;                String email = emailField.getText();</b>
+<b class="nc">&nbsp;                String password = new String(passwordField.getPassword());</b>
+&nbsp;
+&nbsp;                // Save data to PSV file
+<b class="nc">&nbsp;                saveData(name, email, password);</b>
+&nbsp;
+&nbsp;                // Clear input fields
+<b class="nc">&nbsp;                nameField.setText(&quot;&quot;);</b>
+<b class="nc">&nbsp;                emailField.setText(&quot;&quot;);</b>
+<b class="nc">&nbsp;                passwordField.setText(&quot;&quot;);</b>
+&nbsp;            }
+&nbsp;        });
+<b class="nc">&nbsp;        add(createAccountButton);</b>
+&nbsp;
+<b class="nc">&nbsp;        setSize(330, 220);</b>
+<b class="nc">&nbsp;        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);</b>
+<b class="nc">&nbsp;        setLocationRelativeTo(null);</b>
+<b class="nc">&nbsp;        setResizable(false);</b>
+<b class="nc">&nbsp;        setVisible(true);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    private void saveData(String name, String email, String password) {
+<b class="nc">&nbsp;        try (FileWriter writer = new FileWriter(&quot;PassengerAccounts.psv&quot;, true)) {</b>
+<b class="nc">&nbsp;            String line = name + &quot;|&quot; + email + &quot;|&quot; + password + &quot;\n&quot;;</b>
+<b class="nc">&nbsp;            writer.write(line);</b>
+<b class="nc">&nbsp;            JOptionPane.showMessageDialog(null,&quot;Data saved successfully!&quot;);</b>
+<b class="nc">&nbsp;        } catch (IOException e) {</b>
+<b class="nc">&nbsp;            e.printStackTrace();</b>
+<b class="nc">&nbsp;        }</b>
+&nbsp;    }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-07-27 15:40</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,173 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > Role</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">WrightFlightManager.MODEL</a>
+</div>
+
+<h1>Coverage Summary for Class: Role (WrightFlightManager.MODEL)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">Role</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (5/5)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (7/7)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package WrightFlightManager.MODEL;
+&nbsp;
+&nbsp;/**
+&nbsp; * @class Role
+&nbsp; * @brief This class represents a role with its ID number and title.
+&nbsp; * &lt;p&gt;
+&nbsp; * The Role class encapsulates information about a role, including its unique ID number
+&nbsp; * and its title. Objects of this class can be used to store and retrieve role-related
+&nbsp; * information in the WrightFlightManager application.
+&nbsp; */
+&nbsp;public class Role {
+&nbsp;    private int roleId;
+&nbsp;    private String roleTitle;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * The Role constructor creates a new Role object and requires both parameters
+&nbsp;     * (cannot build a Role object with a non-parameterized constructor).
+&nbsp;     * Linked Issue: #74 https://github.com/WSUCEG-7140/TeamF/issues/74
+&nbsp;     * @param roleId    An integer identifying the role.
+&nbsp;     * @param roleTitle A String representing the name of the role.
+&nbsp;     */
+<b class="fc">&nbsp;    public Role(int roleId, String roleTitle) {</b>
+<b class="fc">&nbsp;        this.roleId = roleId;</b>
+<b class="fc">&nbsp;        this.roleTitle = roleTitle;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * @brief Retrieves the ID number of the role.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * The getRoleId method takes no parameters and returns the role&#39;s ID number.
+&nbsp;     * Linked Issue: #74 https://github.com/WSUCEG-7140/TeamF/issues/74
+&nbsp;     * @return An integer representing the role&#39;s ID number.
+&nbsp;     */
+&nbsp;    public int getRoleId() {
+<b class="fc">&nbsp;        return roleId;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * @brief Sets the ID number of the role.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * The setRoleId method takes an integer as a parameter to update a roleId.
+&nbsp;     * Linked Issue: #74 https://github.com/WSUCEG-7140/TeamF/issues/74
+&nbsp;     * @param roleId An integer to change the role&#39;s ID number to.
+&nbsp;     */
+&nbsp;    public void setRoleId(int roleId) {
+<b class="fc">&nbsp;        this.roleId = roleId;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * @brief Retrieves the title of the role.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * The getRoleTitle method takes no parameters and returns the role&#39;s title.
+&nbsp;     * Linked Issue: #74 https://github.com/WSUCEG-7140/TeamF/issues/74
+&nbsp;     * @return A String representing the name of the role.
+&nbsp;     */
+&nbsp;    public String getRoleTitle() {
+<b class="fc">&nbsp;        return roleTitle;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * @brief Sets the title of the role.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * The setRoleTitle method takes a String as a parameter to update the title of a role.
+&nbsp;     * Linked Issue: #74 https://github.com/WSUCEG-7140/TeamF/issues/74
+&nbsp;     * @param roleTitle A String to change the role&#39;s title to.
+&nbsp;     */
+&nbsp;    public void setRoleTitle(String roleTitle) {
+<b class="fc">&nbsp;        this.roleTitle = roleTitle;</b>
+&nbsp;    }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-07-27 15:40</div>
+</div>
+</body>
+</html>

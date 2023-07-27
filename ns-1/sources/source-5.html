@@ -1,0 +1,126 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > iRoleDAO</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">WrightFlightManager.DAO</a>
+</div>
+
+<h1>Coverage Summary for Class: iRoleDAO (WrightFlightManager.DAO)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+</tr>
+<tr>
+  <td class="name">iRoleDAO</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package WrightFlightManager.DAO;
+&nbsp;
+&nbsp;import WrightFlightManager.MODEL.Role;
+&nbsp;
+&nbsp;import java.util.HashMap;
+&nbsp;
+&nbsp;/**
+&nbsp; * @interface iRoleDAO
+&nbsp; * @brief This interface defines the contract for managing roles using a data access object (DAO) approach.
+&nbsp; *
+&nbsp; * The iRoleDAO interface provides a set of methods for performing CRUD (Create, Read, Update, Delete) operations
+&nbsp; * related to the &quot;Role&quot; entity. Classes that implement this interface are expected to provide concrete
+&nbsp; * implementations for these methods, allowing interaction with a data storage system for managing roles.
+&nbsp; */
+&nbsp;public interface iRoleDAO {
+&nbsp;
+&nbsp;    /**
+&nbsp;     * @brief Adds a new role to the data storage.
+&nbsp;     *
+&nbsp;     * This method adds a new role to the data storage (e.g., a file or database) if the role ID and role title
+&nbsp;     * are not already present in the data storage.
+&nbsp;     *
+&nbsp;     * @param newRole The Role object representing the new role to be added.
+&nbsp;     * @return true if the role was successfully added, false otherwise.
+&nbsp;     */
+&nbsp;    boolean addNewRole(Role newRole);
+&nbsp;
+&nbsp;    /**
+&nbsp;     * @brief Retrieves all roles from the data storage.
+&nbsp;     *
+&nbsp;     * This method retrieves all roles from the data storage and returns them as a HashMap, where the keys
+&nbsp;     * are role IDs (Integer) and the values are Role objects.
+&nbsp;     *
+&nbsp;     * @return A HashMap containing all roles, where the keys are role IDs and the values are Role objects.
+&nbsp;     */
+&nbsp;    HashMap&lt;Integer, Role&gt; getAllRoles();
+&nbsp;
+&nbsp;    /**
+&nbsp;     * @brief Updates an existing role in the data storage.
+&nbsp;     *
+&nbsp;     * This method updates an existing role in the data storage based on the information provided in the
+&nbsp;     * updatedRole parameter. The update is performed based on the role&#39;s unique identifier (ID).
+&nbsp;     *
+&nbsp;     * @param updatedRole The Role object representing the updated role information.
+&nbsp;     * @return true if the role was successfully updated, false otherwise.
+&nbsp;     */
+&nbsp;    boolean updateRole(Role updatedRole);
+&nbsp;
+&nbsp;    /**
+&nbsp;     * @brief Deletes a role from the data storage.
+&nbsp;     *
+&nbsp;     * This method deletes the specified role from the data storage based on the information provided
+&nbsp;     * in the roleToDelete parameter. The deletion is performed based on the role&#39;s unique identifier (ID).
+&nbsp;     *
+&nbsp;     * @param roleToDelete The Role object representing the role to be deleted.
+&nbsp;     * @return true if the role was successfully deleted, false otherwise.
+&nbsp;     */
+&nbsp;    boolean deleteRole(Role roleToDelete);
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-07-27 15:32</div>
+</div>
+</body>
+</html>

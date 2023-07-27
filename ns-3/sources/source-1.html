@@ -1,0 +1,213 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > BaggageScreentoFlightAttendantView</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">WrightFlightManager.GUI</a>
+</div>
+
+<h1>Coverage Summary for Class: BaggageScreentoFlightAttendantView (WrightFlightManager.GUI)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">BaggageScreentoFlightAttendantView</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/13)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">BaggageScreentoFlightAttendantView$BaggageScreenPanel</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/9)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">BaggageScreentoFlightAttendantView$BaggageScreenPanel$1</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/3)
+  </span>
+</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/4)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/25)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package WrightFlightManager.GUI;
+&nbsp;import javax.swing.*;
+&nbsp;import java.awt.*;
+&nbsp;import java.awt.event.ActionEvent;
+&nbsp;import java.awt.event.ActionListener;
+&nbsp;
+&nbsp;//change functionality according to available database
+&nbsp;//Issue no 50
+&nbsp;public class BaggageScreentoFlightAttendantView  extends JFrame {
+&nbsp;    private JPanel mainPanel;
+&nbsp;    private CardLayout cardLayout;
+&nbsp;    private BaggageScreenPanel baggageScreenPanel;
+&nbsp;
+<b class="nc">&nbsp;    public BaggageScreentoFlightAttendantView() {</b>
+<b class="nc">&nbsp;        setTitle(&quot;Flight Control System&quot;);</b>
+<b class="nc">&nbsp;        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);</b>
+<b class="nc">&nbsp;        setSize(600, 400);</b>
+<b class="nc">&nbsp;        setResizable(false);</b>
+<b class="nc">&nbsp;        setLocationRelativeTo(null);</b>
+<b class="nc">&nbsp;        mainPanel = new JPanel();</b>
+<b class="nc">&nbsp;        cardLayout = new CardLayout();</b>
+<b class="nc">&nbsp;        mainPanel.setLayout(cardLayout);</b>
+&nbsp;
+<b class="nc">&nbsp;        baggageScreenPanel = new BaggageScreenPanel();</b>
+<b class="nc">&nbsp;        mainPanel.add(baggageScreenPanel, &quot;BaggageScreenPanel&quot;);</b>
+&nbsp;
+<b class="nc">&nbsp;        getContentPane().add(mainPanel);</b>
+&nbsp;
+<b class="nc">&nbsp;        setVisible(true);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    //create a BaggageScreenPanel
+&nbsp;    private class BaggageScreenPanel extends JPanel {
+&nbsp;        private JLabel baggageInfoLabel;
+&nbsp;        private JTextField baggageNumberField;
+&nbsp;        private JButton scanBaggageButton;
+&nbsp;
+<b class="nc">&nbsp;        public BaggageScreenPanel() {</b>
+<b class="nc">&nbsp;            setLayout(new FlowLayout());</b>
+&nbsp;
+<b class="nc">&nbsp;            baggageInfoLabel = new JLabel(&quot;Baggage Information:&quot;);</b>
+<b class="nc">&nbsp;            baggageNumberField = new JTextField(10);</b>
+<b class="nc">&nbsp;            scanBaggageButton = new JButton(&quot;Scan Baggage&quot;);</b>
+&nbsp;
+<b class="nc">&nbsp;            add(baggageInfoLabel);</b>
+<b class="nc">&nbsp;            add(baggageNumberField);</b>
+<b class="nc">&nbsp;            add(scanBaggageButton);</b>
+&nbsp;
+<b class="nc">&nbsp;            scanBaggageButton.addActionListener(new ActionListener() {</b>
+&nbsp;                @Override
+&nbsp;                public void actionPerformed(ActionEvent e) {
+<b class="nc">&nbsp;                    String baggageNumber = baggageNumberField.getText();</b>
+&nbsp;                    /*
+&nbsp;					apply algos as per record
+&nbsp;					*/
+&nbsp;                    // Display message for confirmation
+<b class="nc">&nbsp;                    JOptionPane.showMessageDialog(BaggageScreenPanel.this,</b>
+&nbsp;                            &quot;Baggage scanned: &quot; + baggageNumber,
+&nbsp;                            &quot;Baggage Scanning&quot;, JOptionPane.INFORMATION_MESSAGE);
+&nbsp;                }
+&nbsp;            });
+&nbsp;        }
+&nbsp;    }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-07-27 15:40</div>
+</div>
+</body>
+</html>

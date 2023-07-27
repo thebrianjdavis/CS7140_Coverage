@@ -1,0 +1,193 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > Plane</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">WrightFlightManager.MODEL</a>
+</div>
+
+<h1>Coverage Summary for Class: Plane (WrightFlightManager.MODEL)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">Plane</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (6/6)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (9/9)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package WrightFlightManager.MODEL;
+&nbsp;
+&nbsp;/**
+&nbsp; * @class Plane
+&nbsp; * @brief This class represents a plane with its type and seat capacities.
+&nbsp; * &lt;p&gt;
+&nbsp; * The Plane class encapsulates information about a plane, including its type and seat capacities
+&nbsp; * for first class and coach class. Objects of this class can be used to store and retrieve plane-related
+&nbsp; * information in the WrightFlightManager application.
+&nbsp; */
+&nbsp;public class Plane {
+&nbsp;    private final String planeType;
+&nbsp;    private int firstClassSeatCapacity;
+&nbsp;    private int coachClassSeatCapacity;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * The Plane constructor creates a new Plane object and requires all parameters
+&nbsp;     * (cannot build a Plane object with a non-parameterized constructor).
+&nbsp;     * Linked Issue: #72 https://github.com/WSUCEG-7140/TeamF/issues/72
+&nbsp;     * @param planeType              A String representing the type of plane.
+&nbsp;     * @param firstClassSeatCapacity An integer representing the number of first class seats on the plane.
+&nbsp;     * @param coachClassSeatCapacity An integer representing the number of coach class seats on the plane.
+&nbsp;     */
+<b class="fc">&nbsp;    public Plane(String planeType, int firstClassSeatCapacity, int coachClassSeatCapacity) {</b>
+<b class="fc">&nbsp;        this.planeType = planeType;</b>
+<b class="fc">&nbsp;        this.firstClassSeatCapacity = firstClassSeatCapacity;</b>
+<b class="fc">&nbsp;        this.coachClassSeatCapacity = coachClassSeatCapacity;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * @brief Retrieves the type of the plane.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * The getPlaneType method takes no parameters and returns the plane type.
+&nbsp;     * Linked Issue: #72 https://github.com/WSUCEG-7140/TeamF/issues/72
+&nbsp;     * @return A String representing the type of plane.
+&nbsp;     */
+&nbsp;    public String getPlaneType() {
+<b class="fc">&nbsp;        return planeType;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * @brief Retrieves the maximum number of first class seats the plane has.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * The getFirstClassSeatCapacity method takes no parameters and returns the maximum number
+&nbsp;     * of first class seats the plane has.
+&nbsp;     * Linked Issue: #72 https://github.com/WSUCEG-7140/TeamF/issues/72
+&nbsp;     * @return An integer representing the number of first class seats on the plane.
+&nbsp;     */
+&nbsp;    public int getFirstClassSeatCapacity() {
+<b class="fc">&nbsp;        return firstClassSeatCapacity;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * @brief Sets the maximum number of first class seats for the plane.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * The setFirstClassSeatCapacity method takes an integer as a parameter to update the plane&#39;s
+&nbsp;     * maximum number of first class seats.
+&nbsp;     * Linked Issue: #72 https://github.com/WSUCEG-7140/TeamF/issues/72
+&nbsp;     * @param firstClassSeatCapacity An integer representing the number of first class seats to
+&nbsp;     *                               update the plane&#39;s first class seat capacity to.
+&nbsp;     */
+&nbsp;    public void setFirstClassSeatCapacity(int firstClassSeatCapacity) {
+<b class="fc">&nbsp;        this.firstClassSeatCapacity = firstClassSeatCapacity;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * @brief Retrieves the maximum number of coach class seats the plane has.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * The getCoachClassSeatCapacity method takes no parameters and returns the maximum number
+&nbsp;     * of coach class seats the plane has.
+&nbsp;     * Linked Issue: #72 https://github.com/WSUCEG-7140/TeamF/issues/72
+&nbsp;     * @return An integer representing the number of coach class seats on the plane.
+&nbsp;     */
+&nbsp;    public int getCoachClassSeatCapacity() {
+<b class="fc">&nbsp;        return coachClassSeatCapacity;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * @brief Sets the maximum number of coach class seats for the plane.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * The setCoachClassSeatCapacity method takes an integer as a parameter to update the plane&#39;s
+&nbsp;     * maximum number of coach class seats.
+&nbsp;     * Linked Issue: #72 https://github.com/WSUCEG-7140/TeamF/issues/72
+&nbsp;     * @param coachClassSeatCapacity An integer representing the number of coach class seats to
+&nbsp;     *                               update the plane&#39;s coach class seat capacity to.
+&nbsp;     */
+&nbsp;    public void setCoachClassSeatCapacity(int coachClassSeatCapacity) {
+<b class="fc">&nbsp;        this.coachClassSeatCapacity = coachClassSeatCapacity;</b>
+&nbsp;    }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-07-27 15:40</div>
+</div>
+</body>
+</html>

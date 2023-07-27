@@ -1,0 +1,425 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > User</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">WrightFlightManager.MODEL</a>
+</div>
+
+<h1>Coverage Summary for Class: User (WrightFlightManager.MODEL)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">User</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (25/25)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (37/37)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package WrightFlightManager.MODEL;
+&nbsp;
+&nbsp;/**
+&nbsp; * @class User
+&nbsp; * @brief This class represents a user with various personal information.
+&nbsp; * &lt;p&gt;
+&nbsp; * The User class encapsulates information about a user, including their username,
+&nbsp; * password hash and salt, role, first name, last name, street address, city, state,
+&nbsp; * zipcode, phone number, and email address. Objects of this class can be used to store
+&nbsp; * and retrieve user-related information in the WrightFlightManager application.
+&nbsp; */
+&nbsp;public class User {
+&nbsp;    private final String username;
+&nbsp;    private String passwordHash;
+&nbsp;    private String passwordSalt;
+&nbsp;    private Role userRole;
+&nbsp;    private String firstName;
+&nbsp;    private String lastName;
+&nbsp;    private String streetAddress;
+&nbsp;    private String city;
+&nbsp;    private String state;
+&nbsp;    private String zipcode;
+&nbsp;    private String phoneNumber;
+&nbsp;    private String emailAddress;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * The User constructor creates a new User object and requires all parameters
+&nbsp;     * (cannot build a User object with a non-parameterized constructor).
+&nbsp;     * Linked Issue: #75 https://github.com/WSUCEG-7140/TeamF/issues/75
+&nbsp;     * @param username      A String representing the user&#39;s username.
+&nbsp;     * @param passwordHash  A String representing the hash value for the user&#39;s password.
+&nbsp;     * @param passwordSalt  A String representing the salt needed to hash the user&#39;s password.
+&nbsp;     * @param userRole      A Role object representing the user&#39;s role.
+&nbsp;     * @param firstName     A String representing the user&#39;s first name.
+&nbsp;     * @param lastName      A String representing the user&#39;s last name.
+&nbsp;     * @param streetAddress A String representing the user&#39;s street address.
+&nbsp;     * @param city          A String representing the user&#39;s city.
+&nbsp;     * @param state         A String representing the user&#39;s state.
+&nbsp;     * @param zipcode       A String representing the user&#39;s zipcode.
+&nbsp;     * @param phoneNumber   A String representing the user&#39;s phone number.
+&nbsp;     * @param emailAddress  A String representing the user&#39;s email address.
+&nbsp;     */
+<b class="fc">&nbsp;    public User(String username, String passwordHash, String passwordSalt, Role userRole, String firstName, String lastName, String streetAddress, String city, String state, String zipcode, String phoneNumber, String emailAddress) {</b>
+<b class="fc">&nbsp;        this.username = username;</b>
+<b class="fc">&nbsp;        this.passwordHash = passwordHash;</b>
+<b class="fc">&nbsp;        this.passwordSalt = passwordSalt;</b>
+<b class="fc">&nbsp;        this.userRole = userRole;</b>
+<b class="fc">&nbsp;        this.firstName = firstName;</b>
+<b class="fc">&nbsp;        this.lastName = lastName;</b>
+<b class="fc">&nbsp;        this.streetAddress = streetAddress;</b>
+<b class="fc">&nbsp;        this.city = city;</b>
+<b class="fc">&nbsp;        this.state = state;</b>
+<b class="fc">&nbsp;        this.zipcode = zipcode;</b>
+<b class="fc">&nbsp;        this.phoneNumber = phoneNumber;</b>
+<b class="fc">&nbsp;        this.emailAddress = emailAddress;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * @brief Retrieves the user&#39;s username.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * The getUsername method takes no parameters and returns the user&#39;s username.
+&nbsp;     * Linked Issue: #75 https://github.com/WSUCEG-7140/TeamF/issues/75
+&nbsp;     * @return A String representing the user&#39;s username.
+&nbsp;     */
+&nbsp;    public String getUsername() {
+<b class="fc">&nbsp;        return username;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * @brief Retrieves the user&#39;s password hash.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * The getPasswordHash method takes no parameters and returns the user&#39;s password hash.
+&nbsp;     * Linked Issue: #75 https://github.com/WSUCEG-7140/TeamF/issues/75
+&nbsp;     * @return A String representing the hash value for the user&#39;s password.
+&nbsp;     */
+&nbsp;    public String getPasswordHash() {
+<b class="fc">&nbsp;        return passwordHash;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * @brief Sets the user&#39;s password hash.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * The setPasswordHash method takes a String as a parameter to update the user&#39;s password hash.
+&nbsp;     * Linked Issue: #75 https://github.com/WSUCEG-7140/TeamF/issues/75
+&nbsp;     * @param passwordHash A String representing a new password&#39;s hash value.
+&nbsp;     */
+&nbsp;    public void setPasswordHash(String passwordHash) {
+<b class="fc">&nbsp;        this.passwordHash = passwordHash;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * @brief Retrieves the user&#39;s password salt.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * The getPasswordSalt method takes no parameters and returns the user&#39;s password salt.
+&nbsp;     * Linked Issue: #75 https://github.com/WSUCEG-7140/TeamF/issues/75
+&nbsp;     * @return A String representing the salt needed to hash the user&#39;s password.
+&nbsp;     */
+&nbsp;    public String getPasswordSalt() {
+<b class="fc">&nbsp;        return passwordSalt;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * @brief Sets the user&#39;s password salt.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * The setPasswordSalt method takes a String as a parameter to update the user&#39;s password salt.
+&nbsp;     * Linked Issue: #75 https://github.com/WSUCEG-7140/TeamF/issues/75
+&nbsp;     * @param passwordSalt A String representing a new password&#39;s salt value.
+&nbsp;     */
+&nbsp;    public void setPasswordSalt(String passwordSalt) {
+<b class="fc">&nbsp;        this.passwordSalt = passwordSalt;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * @brief Retrieves the user&#39;s role.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * The getUserRole method takes no parameters and returns the user&#39;s role as a Role object.
+&nbsp;     * Linked Issue: #75 https://github.com/WSUCEG-7140/TeamF/issues/75
+&nbsp;     * @return A Role object representing the user&#39;s role.
+&nbsp;     */
+&nbsp;    public Role getUserRole() {
+<b class="fc">&nbsp;        return userRole;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * @brief Sets the user&#39;s role.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * The setUserRole method takes a Role object as a parameter to update the user&#39;s role.
+&nbsp;     * Linked Issue: #75 https://github.com/WSUCEG-7140/TeamF/issues/75
+&nbsp;     * @param userRole A Role object representing the user&#39;s new role.
+&nbsp;     */
+&nbsp;    public void setUserRole(Role userRole) {
+<b class="fc">&nbsp;        this.userRole = userRole;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * @brief Retrieves the user&#39;s first name.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * The getFirstName method takes no parameters and returns the user&#39;s first name.
+&nbsp;     * Linked Issue: #75 https://github.com/WSUCEG-7140/TeamF/issues/75
+&nbsp;     * @return A String representing the user&#39;s first name.
+&nbsp;     */
+&nbsp;    public String getFirstName() {
+<b class="fc">&nbsp;        return firstName;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * @brief Sets the user&#39;s first name.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * The setFirstName method takes a String as a parameter to update the user&#39;s first name.
+&nbsp;     * Linked Issue: #75 https://github.com/WSUCEG-7140/TeamF/issues/75
+&nbsp;     * @param firstName A String representing the user&#39;s new first name.
+&nbsp;     */
+&nbsp;    public void setFirstName(String firstName) {
+<b class="fc">&nbsp;        this.firstName = firstName;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * @brief Retrieves the user&#39;s last name.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * The getLastName method takes no parameters and returns the user&#39;s last name.
+&nbsp;     * Linked Issue: #75 https://github.com/WSUCEG-7140/TeamF/issues/75
+&nbsp;     * @return A String representing the user&#39;s last name.
+&nbsp;     */
+&nbsp;    public String getLastName() {
+<b class="fc">&nbsp;        return lastName;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * @brief Sets the user&#39;s last name.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * The setLastName method takes a String as a parameter to update the user&#39;s last name.
+&nbsp;     * Linked Issue: #75 https://github.com/WSUCEG-7140/TeamF/issues/75
+&nbsp;     * @param lastName A String representing the user&#39;s new last name.
+&nbsp;     */
+&nbsp;    public void setLastName(String lastName) {
+<b class="fc">&nbsp;        this.lastName = lastName;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * @brief Retrieves the user&#39;s full address.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * The getFullAddress method takes no parameters and returns the user&#39;s full mailing address,
+&nbsp;     * formatted as a single String.
+&nbsp;     * Linked Issue: #75 https://github.com/WSUCEG-7140/TeamF/issues/75
+&nbsp;     * @return A String formatted to represent the user&#39;s full mailing address.
+&nbsp;     */
+&nbsp;    public String getFullAddress() {
+<b class="fc">&nbsp;        return streetAddress + &quot;, &quot; + city + &quot;, &quot; + state + &quot;  &quot; + zipcode;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * @brief Retrieves the user&#39;s street address.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * The getStreetAddress method takes no parameters and returns the user&#39;s street address.
+&nbsp;     * Linked Issue: #75 https://github.com/WSUCEG-7140/TeamF/issues/75
+&nbsp;     * @return A String representing the user&#39;s street address.
+&nbsp;     */
+&nbsp;    public String getStreetAddress() {
+<b class="fc">&nbsp;        return streetAddress;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * @brief Sets the user&#39;s street address.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * The setStreetAddress method takes a String as a parameter to update the user&#39;s street address.
+&nbsp;     * Linked Issue: #75 https://github.com/WSUCEG-7140/TeamF/issues/75
+&nbsp;     * @param streetAddress A String representing the user&#39;s new street address.
+&nbsp;     */
+&nbsp;    public void setStreetAddress(String streetAddress) {
+<b class="fc">&nbsp;        this.streetAddress = streetAddress;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * @brief Retrieves the user&#39;s city.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * The getCity method takes no parameters and returns the user&#39;s city.
+&nbsp;     * Linked Issue: #75 https://github.com/WSUCEG-7140/TeamF/issues/75
+&nbsp;     * @return A String representing the user&#39;s city.
+&nbsp;     */
+&nbsp;    public String getCity() {
+<b class="fc">&nbsp;        return city;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * @brief Sets the user&#39;s city.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * The setCity method takes a String as a parameter to update the user&#39;s city.
+&nbsp;     * Linked Issue: #75 https://github.com/WSUCEG-7140/TeamF/issues/75
+&nbsp;     * @param city A String representing the user&#39;s new city.
+&nbsp;     */
+&nbsp;    public void setCity(String city) {
+<b class="fc">&nbsp;        this.city = city;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * @brief Retrieves the user&#39;s state.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * The getState method takes no parameters and returns the user&#39;s state.
+&nbsp;     * Linked Issue: #75 https://github.com/WSUCEG-7140/TeamF/issues/75
+&nbsp;     * @return A String representing the user&#39;s state.
+&nbsp;     */
+&nbsp;    public String getState() {
+<b class="fc">&nbsp;        return state;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * @brief Sets the user&#39;s state.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * The setState method takes a String as a parameter to update the user&#39;s state.
+&nbsp;     * Linked Issue: #75 https://github.com/WSUCEG-7140/TeamF/issues/75
+&nbsp;     * @param state A String representing the user&#39;s new state.
+&nbsp;     */
+&nbsp;    public void setState(String state) {
+<b class="fc">&nbsp;        this.state = state;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * @brief Retrieves the user&#39;s zipcode.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * The getZipcode method takes no parameters and returns the user&#39;s zipcode.
+&nbsp;     * Linked Issue: #75 https://github.com/WSUCEG-7140/TeamF/issues/75
+&nbsp;     * @return A String representing the user&#39;s zipcode.
+&nbsp;     */
+&nbsp;    public String getZipcode() {
+<b class="fc">&nbsp;        return zipcode;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * @brief Sets the user&#39;s zipcode.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * The setZipcode method takes a String as a parameter to update the user&#39;s zipcode.
+&nbsp;     * Linked Issue: #75 https://github.com/WSUCEG-7140/TeamF/issues/75
+&nbsp;     * @param zipcode A String representing the user&#39;s zipcode.
+&nbsp;     */
+&nbsp;    public void setZipcode(String zipcode) {
+<b class="fc">&nbsp;        this.zipcode = zipcode;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * @brief Retrieves the user&#39;s phone number.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * The getPhoneNumber method takes no parameters and returns the user&#39;s phone number.
+&nbsp;     * Linked Issue: #75 https://github.com/WSUCEG-7140/TeamF/issues/75
+&nbsp;     * @return A String representing the user&#39;s phone number.
+&nbsp;     */
+&nbsp;    public String getPhoneNumber() {
+<b class="fc">&nbsp;        return phoneNumber;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * @brief Sets the user&#39;s phone number.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * The setPhoneNumber method takes a String as a parameter to update the user&#39;s phone number.
+&nbsp;     * Linked Issue: #75 https://github.com/WSUCEG-7140/TeamF/issues/75
+&nbsp;     * @param phoneNumber A String representing the user&#39;s new phone number.
+&nbsp;     */
+&nbsp;    public void setPhoneNumber(String phoneNumber) {
+<b class="fc">&nbsp;        this.phoneNumber = phoneNumber;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * @brief Retrieves the user&#39;s email address.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * The getEmailAddress method takes no parameters and returns the user&#39;s email address.
+&nbsp;     * Linked Issue: #75 https://github.com/WSUCEG-7140/TeamF/issues/75
+&nbsp;     * @return A String representing the user&#39;s email address.
+&nbsp;     */
+&nbsp;    public String getEmailAddress() {
+<b class="fc">&nbsp;        return emailAddress;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * @brief Sets the user&#39;s email address.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * The setEmailAddress method takes a String as a parameter to update the user&#39;s email address.
+&nbsp;     * Linked Issue: #75 https://github.com/WSUCEG-7140/TeamF/issues/75
+&nbsp;     * @param emailAddress A String representing the user&#39;s new email address.
+&nbsp;     */
+&nbsp;    public void setEmailAddress(String emailAddress) {
+<b class="fc">&nbsp;        this.emailAddress = emailAddress;</b>
+&nbsp;    }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-07-27 15:40</div>
+</div>
+</body>
+</html>

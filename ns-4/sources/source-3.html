@@ -1,0 +1,471 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > Flight</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">WrightFlightManager.MODEL</a>
+</div>
+
+<h1>Coverage Summary for Class: Flight (WrightFlightManager.MODEL)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">Flight</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (25/25)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (49/49)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package WrightFlightManager.MODEL;
+&nbsp;
+&nbsp;import java.util.Date;
+&nbsp;
+&nbsp;/**
+&nbsp; * @class Flight
+&nbsp; * @brief This class represents a flight with its attributes and methods.
+&nbsp; * &lt;p&gt;
+&nbsp; * The Flight class encapsulates information about a flight, including its flight number,
+&nbsp; * origin and destination airports, plane type, planned departure and arrival dates, actual
+&nbsp; * departure and arrival dates, departure and arrival gates, and the number of filled seats in
+&nbsp; * first class and coach class. Objects of this class can be used to store and retrieve flight-related
+&nbsp; * information in the WrightFlightManager application.
+&nbsp; */
+&nbsp;public class Flight {
+&nbsp;    private final String flightNumber;
+&nbsp;    private String originAirport;
+&nbsp;    private String destinationAirport;
+&nbsp;    private String planeType;
+&nbsp;    private Date plannedDeparture;
+&nbsp;    private Date plannedArrival;
+&nbsp;    private Date actualDeparture;
+&nbsp;    private Date actualArrival;
+&nbsp;    private String departureGate;
+&nbsp;    private String arrivalGate;
+&nbsp;    private int firstClassSeatsFilled;
+&nbsp;    private int coachClassSeatsFilled;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * @brief This parameterized constructor is for creating a new flight entry in the database and
+&nbsp;     * initializes the variables for firstClassSeatsFilled and coachClassSeatsFilled to zero.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * Linked Issue: #73 https://github.com/WSUCEG-7140/TeamF/issues/73
+&nbsp;     * @param flightNumber       A String representing the four-digit flight number.
+&nbsp;     * @param originAirport      A String representing the three-letter airport code of origin.
+&nbsp;     * @param destinationAirport A String representing the three-letter airport code of destination.
+&nbsp;     * @param planeType          A String representing the type of plane the flight will use.
+&nbsp;     * @param plannedDeparture   A Date representing the planned date and time of departure.
+&nbsp;     * @param plannedArrival     A Date representing the planned date and time of arrival.
+&nbsp;     * @param departureGate      A String representing the gate the flight will depart from.
+&nbsp;     * @param arrivalGate        A String representing the gate the flight will arrive at.
+&nbsp;     */
+<b class="fc">&nbsp;    public Flight(String flightNumber, String originAirport, String destinationAirport, String planeType, Date plannedDeparture, Date plannedArrival, String departureGate, String arrivalGate) {</b>
+<b class="fc">&nbsp;        this.flightNumber = flightNumber;</b>
+<b class="fc">&nbsp;        this.originAirport = originAirport;</b>
+<b class="fc">&nbsp;        this.destinationAirport = destinationAirport;</b>
+<b class="fc">&nbsp;        this.planeType = planeType;</b>
+<b class="fc">&nbsp;        this.plannedDeparture = plannedDeparture;</b>
+<b class="fc">&nbsp;        this.plannedArrival = plannedArrival;</b>
+<b class="fc">&nbsp;        this.actualDeparture = null;</b>
+<b class="fc">&nbsp;        this.actualArrival = null;</b>
+<b class="fc">&nbsp;        this.departureGate = departureGate;</b>
+<b class="fc">&nbsp;        this.arrivalGate = arrivalGate;</b>
+<b class="fc">&nbsp;        this.firstClassSeatsFilled = 0;</b>
+<b class="fc">&nbsp;        this.coachClassSeatsFilled = 0;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * @brief This parameterized constructor is for Flight objects that already exist and are read-in
+&nbsp;     * from the Flights database file.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * Linked Issue: #73 https://github.com/WSUCEG-7140/TeamF/issues/73
+&nbsp;     * @param flightNumber          A String representing the four-digit flight number.
+&nbsp;     * @param originAirport         A String representing the three-letter airport code of origin.
+&nbsp;     * @param destinationAirport    A String representing the three-letter airport code of destination.
+&nbsp;     * @param planeType             A String representing the type of plane the flight will use.
+&nbsp;     * @param plannedDeparture      A Date representing the planned date and time of departure.
+&nbsp;     * @param plannedArrival        A Date representing the planned date and time of arrival.
+&nbsp;     * @param actualDeparture       A Date representing the actual date and time of departure.
+&nbsp;     * @param actualArrival         A Date representing the actual date and time of arrival.
+&nbsp;     * @param departureGate         A String representing the gate the flight will depart from.
+&nbsp;     * @param arrivalGate           A String representing the gate the flight will arrive at.
+&nbsp;     * @param firstClassSeatsFilled An integer representing the number of first class seats already filled.
+&nbsp;     * @param coachClassSeatsFilled An integer representing the number of coach class seats already filled.
+&nbsp;     */
+<b class="fc">&nbsp;    public Flight(String flightNumber, String originAirport, String destinationAirport, String planeType, Date plannedDeparture, Date plannedArrival, Date actualDeparture, Date actualArrival, String departureGate, String arrivalGate, int firstClassSeatsFilled, int coachClassSeatsFilled) {</b>
+<b class="fc">&nbsp;        this.flightNumber = flightNumber;</b>
+<b class="fc">&nbsp;        this.originAirport = originAirport;</b>
+<b class="fc">&nbsp;        this.destinationAirport = destinationAirport;</b>
+<b class="fc">&nbsp;        this.planeType = planeType;</b>
+<b class="fc">&nbsp;        this.plannedDeparture = plannedDeparture;</b>
+<b class="fc">&nbsp;        this.plannedArrival = plannedArrival;</b>
+<b class="fc">&nbsp;        this.actualDeparture = actualDeparture;</b>
+<b class="fc">&nbsp;        this.actualArrival = actualArrival;</b>
+<b class="fc">&nbsp;        this.departureGate = departureGate;</b>
+<b class="fc">&nbsp;        this.arrivalGate = arrivalGate;</b>
+<b class="fc">&nbsp;        this.firstClassSeatsFilled = firstClassSeatsFilled;</b>
+<b class="fc">&nbsp;        this.coachClassSeatsFilled = coachClassSeatsFilled;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * @brief Retrieves the Flight&#39;s four-digit ID number.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * The getFlightNumber method takes no parameters and returns the Flight&#39;s four-digit ID number.
+&nbsp;     * Linked Issue: #73 https://github.com/WSUCEG-7140/TeamF/issues/73
+&nbsp;     * @return A String representing the four-digit flight identification number.
+&nbsp;     */
+&nbsp;    public String getFlightNumber() {
+<b class="fc">&nbsp;        return flightNumber;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * @brief Retrieves the three-letter code for the Flight&#39;s airport of origin.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * The getOriginAirport method takes no parameters and returns the three-letter code for the
+&nbsp;     * Flight&#39;s airport of origin.
+&nbsp;     * Linked Issue: #73 https://github.com/WSUCEG-7140/TeamF/issues/73
+&nbsp;     * @return A String representing the three-letter airport code.
+&nbsp;     */
+&nbsp;    public String getOriginAirport() {
+<b class="fc">&nbsp;        return originAirport;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * @brief Sets the airport of origin for the Flight.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * The setOriginAirport method takes a single String as a parameter and sets that to the airport
+&nbsp;     * of origin.
+&nbsp;     * Linked Issue: #73 https://github.com/WSUCEG-7140/TeamF/issues/73
+&nbsp;     * @param originAirport A String representing the three-letter airport code for the origin airport.
+&nbsp;     */
+&nbsp;    public void setOriginAirport(String originAirport) {
+<b class="fc">&nbsp;        this.originAirport = originAirport;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * @brief Retrieves the three-letter code for the Flight&#39;s airport of destination.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * The getDestinationAirport method takes no parameters and returns the three-letter code for the
+&nbsp;     * Flight&#39;s airport of destination.
+&nbsp;     * Linked Issue: #73 https://github.com/WSUCEG-7140/TeamF/issues/73
+&nbsp;     * @return A String representing the three-letter airport code.
+&nbsp;     */
+&nbsp;    public String getDestinationAirport() {
+<b class="fc">&nbsp;        return destinationAirport;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * @brief Sets the airport of destination for the Flight.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * The setDestinationAirport method takes a single String as a parameter and sets that to the
+&nbsp;     * destination airport.
+&nbsp;     * Linked Issue: #73 https://github.com/WSUCEG-7140/TeamF/issues/73
+&nbsp;     * @param destinationAirport A String representing the three-letter airport code for the
+&nbsp;     *                           destination airport.
+&nbsp;     */
+&nbsp;    public void setDestinationAirport(String destinationAirport) {
+<b class="fc">&nbsp;        this.destinationAirport = destinationAirport;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * @brief Retrieves the type of plane the Flight will be on.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * The getPlaneType method takes no parameters and returns the type of plane the Flight will be
+&nbsp;     * on.
+&nbsp;     * Linked Issue: #73 https://github.com/WSUCEG-7140/TeamF/issues/73
+&nbsp;     * @return A String representing the type of plane for the Flight.
+&nbsp;     */
+&nbsp;    public String getPlaneType() {
+<b class="fc">&nbsp;        return planeType;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * @brief Sets the type of plane the Flight will use.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * The setPlaneType method takes a single String as a parameter and sets that to the type of
+&nbsp;     * plane the flight will use.
+&nbsp;     * Linked Issue: #73 https://github.com/WSUCEG-7140/TeamF/issues/73
+&nbsp;     * @param planeType A String representing the type of plane for the flight.
+&nbsp;     */
+&nbsp;    public void setPlaneType(String planeType) {
+<b class="fc">&nbsp;        this.planeType = planeType;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * @brief Retrieves the planned date and time of departure for the Flight.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * The getPlannedDeparture method takes no parameters and returns the Date (including time) of
+&nbsp;     * the Flight&#39;s planned departure.
+&nbsp;     * Linked Issue: #73 https://github.com/WSUCEG-7140/TeamF/issues/73
+&nbsp;     * @return A Date representing the planned date and time of departure.
+&nbsp;     */
+&nbsp;    public Date getPlannedDeparture() {
+<b class="fc">&nbsp;        return plannedDeparture;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * @brief Sets the planned date and time of departure for the Flight.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * The setPlannedDeparture method takes a Date (including time) to set the Flight&#39;s planned
+&nbsp;     * departure date/time.
+&nbsp;     * Linked Issue: #73 https://github.com/WSUCEG-7140/TeamF/issues/73
+&nbsp;     * @param plannedDeparture A Date representing the planned date and time of departure.
+&nbsp;     */
+&nbsp;    public void setPlannedDeparture(Date plannedDeparture) {
+<b class="fc">&nbsp;        this.plannedDeparture = plannedDeparture;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * @brief Retrieves the planned date and time of arrival for the Flight.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * The getPlannedArrival method takes no parameters and returns the Date (including time) of
+&nbsp;     * the Flight&#39;s planned arrival.
+&nbsp;     * Linked Issue: #73 https://github.com/WSUCEG-7140/TeamF/issues/73
+&nbsp;     * @return A Date representing the planned date and time of arrival.
+&nbsp;     */
+&nbsp;    public Date getPlannedArrival() {
+<b class="fc">&nbsp;        return plannedArrival;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * @brief Sets the planned date and time of arrival for the Flight.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * The setPlannedArrival method takes a Date (including time) to set the Flight&#39;s planned
+&nbsp;     * arrival date/time.
+&nbsp;     * Linked Issue: #73 https://github.com/WSUCEG-7140/TeamF/issues/73
+&nbsp;     * @param plannedArrival A Date representing the planned date and time of arrival.
+&nbsp;     */
+&nbsp;    public void setPlannedArrival(Date plannedArrival) {
+<b class="fc">&nbsp;        this.plannedArrival = plannedArrival;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * @brief Retrieves the actual date and time of departure for the Flight.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * The getActualDeparture method takes no parameters and returns the Date (including time) of
+&nbsp;     * the Flight&#39;s actual departure.
+&nbsp;     * Linked Issue: #73 https://github.com/WSUCEG-7140/TeamF/issues/73
+&nbsp;     * @return A Date representing the actual date and time of departure.
+&nbsp;     */
+&nbsp;    public Date getActualDeparture() {
+<b class="fc">&nbsp;        return actualDeparture;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * @brief Sets the actual date and time of departure for the Flight.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * The setActualDeparture method takes a Date (including time) to set the Flight&#39;s actual
+&nbsp;     * departure date/time.
+&nbsp;     * Linked Issue: #73 https://github.com/WSUCEG-7140/TeamF/issues/73
+&nbsp;     * @param actualDeparture A Date representing the actual date and time of departure.
+&nbsp;     */
+&nbsp;    public void setActualDeparture(Date actualDeparture) {
+<b class="fc">&nbsp;        this.actualDeparture = actualDeparture;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * @brief Retrieves the actual date and time of arrival for the Flight.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * The getActualArrival method takes no parameters and returns the Date (including time) of
+&nbsp;     * the Flight&#39;s actual arrival.
+&nbsp;     * Linked Issue: #73 https://github.com/WSUCEG-7140/TeamF/issues/73
+&nbsp;     * @return A Date representing the actual date and time of arrival.
+&nbsp;     */
+&nbsp;    public Date getActualArrival() {
+<b class="fc">&nbsp;        return actualArrival;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * @brief Sets the actual date and time of arrival for the Flight.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * The setActualArrival method takes a Date (including time) to set the Flight&#39;s actual
+&nbsp;     * arrival date/time.
+&nbsp;     * Linked Issue: #73 https://github.com/WSUCEG-7140/TeamF/issues/73
+&nbsp;     * @param actualArrival A Date representing the actual date and time of arrival.
+&nbsp;     */
+&nbsp;    public void setActualArrival(Date actualArrival) {
+<b class="fc">&nbsp;        this.actualArrival = actualArrival;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * @brief Retrieves the gate the Flight will depart from.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * The getDepartureGate method takes no parameters and returns the gate the Flight will depart
+&nbsp;     * from.
+&nbsp;     * Linked Issue: #73 https://github.com/WSUCEG-7140/TeamF/issues/73
+&nbsp;     * @return A String representing the gate the Flight will depart from.
+&nbsp;     */
+&nbsp;    public String getDepartureGate() {
+<b class="fc">&nbsp;        return departureGate;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * @brief Sets the gate from which the Flight will depart.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * The setDepartureGate method takes a single String as a parameter and sets the Flight&#39;s
+&nbsp;     * departure gate.
+&nbsp;     * Linked Issue: #73 https://github.com/WSUCEG-7140/TeamF/issues/73
+&nbsp;     * @param departureGate A String representing the gate the flight will depart from.
+&nbsp;     */
+&nbsp;    public void setDepartureGate(String departureGate) {
+<b class="fc">&nbsp;        this.departureGate = departureGate;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * @brief Retrieves the gate the Flight will arrive at.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * The getArrivalGate method takes no parameters and returns the gate the Flight will arrive
+&nbsp;     * at.
+&nbsp;     * Linked Issue: #73 https://github.com/WSUCEG-7140/TeamF/issues/73
+&nbsp;     * @return A String representing the gate the Flight will arrive at.
+&nbsp;     */
+&nbsp;    public String getArrivalGate() {
+<b class="fc">&nbsp;        return arrivalGate;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * @brief Sets the gate at which the Flight will arrive.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * The setArrivalGate method takes a single String as a parameter and sets the Flight&#39;s
+&nbsp;     * arrival gate.
+&nbsp;     * Linked Issue: #73 https://github.com/WSUCEG-7140/TeamF/issues/73
+&nbsp;     * @param arrivalGate A String representing the gate the flight will arrive at.
+&nbsp;     */
+&nbsp;    public void setArrivalGate(String arrivalGate) {
+<b class="fc">&nbsp;        this.arrivalGate = arrivalGate;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * @brief Retrieves the number of first class seats already filled for the flight.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * The getFirstClassSeatsFilled method takes no parameters and returns the number of first
+&nbsp;     * class seats already filled for the flight.
+&nbsp;     * Linked Issue: #73 https://github.com/WSUCEG-7140/TeamF/issues/73
+&nbsp;     * @return An integer representing the number of first class seats already filled.
+&nbsp;     */
+&nbsp;    public int getFirstClassSeatsFilled() {
+<b class="fc">&nbsp;        return firstClassSeatsFilled;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * @brief Sets the number of first class seats already filled for the Flight.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * The setFirstClassSeatsFilled method takes an integer as a parameter and sets the Flight&#39;s
+&nbsp;     * number of first class seats that are already filled.
+&nbsp;     * Linked Issue: #73 https://github.com/WSUCEG-7140/TeamF/issues/73
+&nbsp;     * @param firstClassSeatsFilled An integer representing the number of first class seats
+&nbsp;     *                              already filled.
+&nbsp;     */
+&nbsp;    public void setFirstClassSeatsFilled(int firstClassSeatsFilled) {
+<b class="fc">&nbsp;        this.firstClassSeatsFilled = firstClassSeatsFilled;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * @brief Retrieves the number of coach class seats already filled for the flight.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * The getCoachClassSeatsFilled method takes no parameters and returns the number of coach
+&nbsp;     * class seats already filled for the flight.
+&nbsp;     * Linked Issue: #73 https://github.com/WSUCEG-7140/TeamF/issues/73
+&nbsp;     * @return An integer representing the number of coach class seats already filled.
+&nbsp;     */
+&nbsp;    public int getCoachClassSeatsFilled() {
+<b class="fc">&nbsp;        return coachClassSeatsFilled;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * @brief Sets the number of coach class seats already filled for the Flight.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * The setCoachClassSeatsFilled method takes an integer as a parameter and sets the Flight&#39;s
+&nbsp;     * number of coach class seats that are already filled.
+&nbsp;     * Linked Issue: #73 https://github.com/WSUCEG-7140/TeamF/issues/73
+&nbsp;     * @param coachClassSeatsFilled An integer representing the number of coach class seats
+&nbsp;     *                              already filled.
+&nbsp;     */
+&nbsp;    public void setCoachClassSeatsFilled(int coachClassSeatsFilled) {
+<b class="fc">&nbsp;        this.coachClassSeatsFilled = coachClassSeatsFilled;</b>
+&nbsp;    }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-07-27 15:40</div>
+</div>
+</body>
+</html>

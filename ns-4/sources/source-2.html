@@ -1,0 +1,271 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > Baggage</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">WrightFlightManager.MODEL</a>
+</div>
+
+<h1>Coverage Summary for Class: Baggage (WrightFlightManager.MODEL)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">Baggage</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (11/11)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (22/22)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package WrightFlightManager.MODEL;
+&nbsp;
+&nbsp;import java.util.Date;
+&nbsp;
+&nbsp;/**
+&nbsp; * @class Baggage
+&nbsp; * @brief This class represents a piece of baggage associated with a flight booking.
+&nbsp; * &lt;p&gt;
+&nbsp; * The Baggage class encapsulates information about a piece of baggage, including its unique
+&nbsp; * ID, the username of the owner, airport of origin, airport of destination, check-in date and time,
+&nbsp; * and weight in pounds. Objects of this class can be used to store and retrieve baggage-related
+&nbsp; * information in the WrightFlightManager application.
+&nbsp; */
+&nbsp;public class Baggage {
+&nbsp;    private final int bagId;
+&nbsp;    private final String username;
+&nbsp;    private String bagOriginAirport;
+&nbsp;    private String bagDestinationAirport;
+&nbsp;    private Date checkedInDateTime;
+&nbsp;    private double weightInPounds;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * @brief The Baggage parameterized constructor creates a new Baggage object if it is included
+&nbsp;     * when the flight is booked.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * The constructor initializes a Baggage object with the provided bag ID, username, airport of
+&nbsp;     * origin, and airport of destination. The weight of the baggage is set to 0 by default.
+&nbsp;     * Linked Issue: #76 https://github.com/WSUCEG-7140/TeamF/issues/76
+&nbsp;     * @param bagId                 An integer representing a unique ID number for a bag.
+&nbsp;     * @param username              A String representing the username of the baggage&#39;s owner.
+&nbsp;     * @param bagOriginAirport      A String representing the three-letter airport code of origin.
+&nbsp;     * @param bagDestinationAirport A String representing the three-letter airport code of destination.
+&nbsp;     */
+<b class="fc">&nbsp;    public Baggage(int bagId, String username, String bagOriginAirport, String bagDestinationAirport) {</b>
+<b class="fc">&nbsp;        this.bagId = bagId;</b>
+<b class="fc">&nbsp;        this.username = username;</b>
+<b class="fc">&nbsp;        this.bagOriginAirport = bagOriginAirport;</b>
+<b class="fc">&nbsp;        this.bagDestinationAirport = bagDestinationAirport;</b>
+<b class="fc">&nbsp;        this.weightInPounds = 0;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * @brief The Baggage parameterized constructor creates a Baggage object for baggage on file that was already
+&nbsp;     * checked in at the airport for the flight.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * The constructor initializes a Baggage object with the provided bag ID, username, airport of
+&nbsp;     * origin, airport of destination, check-in date and time, and weight in pounds.
+&nbsp;     * Linked Issue: #76 https://github.com/WSUCEG-7140/TeamF/issues/76
+&nbsp;     * @param bagId                 An integer representing a unique ID number for a bag.
+&nbsp;     * @param username              A String representing the username of the baggage&#39;s owner.
+&nbsp;     * @param bagOriginAirport      A String representing the three-letter airport code of origin.
+&nbsp;     * @param bagDestinationAirport A String representing the three-letter airport code of destination.
+&nbsp;     * @param checkedInDateTime     A Date (including time) representing when the bag was checked in at the
+&nbsp;     *                              airport of origin.
+&nbsp;     * @param weightInPounds        A double representing the weight of the bag (in pounds) when it was checked
+&nbsp;     *                              in at the airport of origin.
+&nbsp;     */
+<b class="fc">&nbsp;    public Baggage(int bagId, String username, String bagOriginAirport, String bagDestinationAirport, Date checkedInDateTime, double weightInPounds) {</b>
+<b class="fc">&nbsp;        this.bagId = bagId;</b>
+<b class="fc">&nbsp;        this.username = username;</b>
+<b class="fc">&nbsp;        this.bagOriginAirport = bagOriginAirport;</b>
+<b class="fc">&nbsp;        this.bagDestinationAirport = bagDestinationAirport;</b>
+<b class="fc">&nbsp;        this.checkedInDateTime = checkedInDateTime;</b>
+<b class="fc">&nbsp;        this.weightInPounds = weightInPounds;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * @brief Retrieves the baggage&#39;s unique ID number.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * The getBagId method takes no parameters and returns the baggage&#39;s ID number.
+&nbsp;     * Linked Issue: #76 https://github.com/WSUCEG-7140/TeamF/issues/76
+&nbsp;     * @return An integer representing the baggage&#39;s unique ID number.
+&nbsp;     */
+&nbsp;    public int getBagId() {
+<b class="fc">&nbsp;        return bagId;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * @brief Retrieves the username of the owner that checked the baggage.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * The getUsername method takes no parameters and returns the username of the baggage&#39;s owner.
+&nbsp;     * Linked Issue: #76 https://github.com/WSUCEG-7140/TeamF/issues/76
+&nbsp;     * @return A String representing the username of the baggage&#39;s owner.
+&nbsp;     */
+&nbsp;    public String getUsername() {
+<b class="fc">&nbsp;        return username;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * @brief Retrieves the baggage&#39;s airport of origin.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * The getBagOriginAirport method takes no parameters and returns the baggage&#39;s airport of origin.
+&nbsp;     * Linked Issue: #76 https://github.com/WSUCEG-7140/TeamF/issues/76
+&nbsp;     * @return A String representing the three-letter airport code of origin.
+&nbsp;     */
+&nbsp;    public String getBagOriginAirport() {
+<b class="fc">&nbsp;        return bagOriginAirport;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * @brief Retrieves the baggage&#39;s airport of destination.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * The getBagDestinationAirport method takes no parameters and returns the baggage&#39;s airport of destination.
+&nbsp;     * Linked Issue: #76 https://github.com/WSUCEG-7140/TeamF/issues/76
+&nbsp;     * @return A String representing the three-letter airport code of destination.
+&nbsp;     */
+&nbsp;    public String getBagDestinationAirport() {
+<b class="fc">&nbsp;        return bagDestinationAirport;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * @brief Retrieves the date (including time) that the bag was checked in.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * The getCheckedInDateTime method takes no parameters and returns the date (including time) that the bag
+&nbsp;     * was checked in at the airport of origin.
+&nbsp;     * Linked Issue: #76 https://github.com/WSUCEG-7140/TeamF/issues/76
+&nbsp;     * @return A Date (including time) that the baggage was checked in at the airport of origin.
+&nbsp;     */
+&nbsp;    public Date getCheckedInDateTime() {
+<b class="fc">&nbsp;        return checkedInDateTime;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * @brief Sets the check-in date and time to the current Date (including time).
+&nbsp;     * &lt;p&gt;
+&nbsp;     * The setCheckedInDateTime method takes no parameters and sets the checkedInDateTime to the current
+&nbsp;     * Date (including time).
+&nbsp;     * Linked Issue: #76 https://github.com/WSUCEG-7140/TeamF/issues/76
+&nbsp;     */
+&nbsp;    public void setCheckedInDateTime() {
+<b class="fc">&nbsp;        this.checkedInDateTime = new Date();</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * @brief Sets the check-in date and time for baggage that has already been checked in.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * The setCheckedInDateTime method takes a Date (including time) as a parameter to set when the baggage
+&nbsp;     * was checked in at the airport of origin.
+&nbsp;     * Linked Issue: #76 https://github.com/WSUCEG-7140/TeamF/issues/76
+&nbsp;     * @param checkedInDateTime The Date (including time) that the baggage was checked in at the airport
+&nbsp;     *                          of origin.
+&nbsp;     */
+&nbsp;    public void setCheckedInDateTime(Date checkedInDateTime) {
+<b class="fc">&nbsp;        this.checkedInDateTime = checkedInDateTime;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * @brief Retrieves the weight of the baggage when it was checked in.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * The getWeightInPounds method takes no parameters and returns the weight of the baggage at check-in (in pounds).
+&nbsp;     * Linked Issue: #76 https://github.com/WSUCEG-7140/TeamF/issues/76
+&nbsp;     * @return A double representing the weight of the baggage at check-in (in pounds).
+&nbsp;     */
+&nbsp;    public double getWeightInPounds() {
+<b class="fc">&nbsp;        return weightInPounds;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * @brief Sets the weight of the baggage.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * The setWeightInPounds method takes a double as a parameter to set the weightInPounds for the baggage.
+&nbsp;     * Linked Issue: #76 https://github.com/WSUCEG-7140/TeamF/issues/76
+&nbsp;     * @param weightInPounds A double representing the weight of the baggage in pounds.
+&nbsp;     */
+&nbsp;    public void setWeightInPounds(double weightInPounds) {
+<b class="fc">&nbsp;        this.weightInPounds = weightInPounds;</b>
+&nbsp;    }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-07-27 15:40</div>
+</div>
+</body>
+</html>

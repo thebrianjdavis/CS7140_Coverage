@@ -1,0 +1,308 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > BaggageScreentoPassengerViewinGUI</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">WrightFlightManager.GUI</a>
+</div>
+
+<h1>Coverage Summary for Class: BaggageScreentoPassengerViewinGUI (WrightFlightManager.GUI)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">BaggageScreentoPassengerViewinGUI</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/82)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">BaggageScreentoPassengerViewinGUI$BaggageScreenPanel</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/9)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">BaggageScreentoPassengerViewinGUI$BaggageScreenPanel$1</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/3)
+  </span>
+</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/5)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/94)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package WrightFlightManager.GUI;
+&nbsp;
+&nbsp;import java.awt.*;
+&nbsp;import java.awt.event.*;
+&nbsp;import javax.swing.*;
+&nbsp;import java.sql.*;
+&nbsp;
+&nbsp;class BaggageScreentoPassengerViewinGUI extends JFrame implements ActionListener {
+&nbsp;    JLabel l1, l2, l3, l4, l5, l6;
+&nbsp;    JTextField t1, t2, t3, t4, t5, t6;
+&nbsp;    JButton b1, b2, baggageButton;
+&nbsp;    Container con;
+&nbsp;    JPanel passengerPanel, baggagePanel;
+&nbsp;    CardLayout cardLayout;
+&nbsp;
+&nbsp;    BaggageScreentoPassengerViewinGUI() {
+<b class="nc">&nbsp;        super(&quot;Passenger View&quot;);</b>
+<b class="nc">&nbsp;        setSize(500, 540);</b>
+<b class="nc">&nbsp;        setLocationRelativeTo(null);</b>
+<b class="nc">&nbsp;        setDefaultCloseOperation(EXIT_ON_CLOSE);</b>
+<b class="nc">&nbsp;        setResizable(false);</b>
+<b class="nc">&nbsp;        setLayout(null);</b>
+<b class="nc">&nbsp;        con = getContentPane();</b>
+&nbsp;
+&nbsp;        // Passenger Panel
+<b class="nc">&nbsp;        passengerPanel = new JPanel();</b>
+<b class="nc">&nbsp;        passengerPanel.setLayout(null);</b>
+&nbsp;
+<b class="nc">&nbsp;        l1 = new JLabel(&quot;Passenger ID:&quot;);</b>
+<b class="nc">&nbsp;        l2 = new JLabel(&quot;Passenger Name:&quot;);</b>
+<b class="nc">&nbsp;        l3 = new JLabel(&quot;Passport No:&quot;);</b>
+<b class="nc">&nbsp;        l4 = new JLabel(&quot;Flight No:&quot;);</b>
+<b class="nc">&nbsp;        l5 = new JLabel(&quot;Age:&quot;);</b>
+<b class="nc">&nbsp;        l6 = new JLabel(&quot;Seat No:&quot;);</b>
+&nbsp;
+<b class="nc">&nbsp;        t1 = new JTextField(&quot;&quot;);</b>
+<b class="nc">&nbsp;        t2 = new JTextField(&quot;&quot;);</b>
+<b class="nc">&nbsp;        t3 = new JTextField(&quot;&quot;);</b>
+<b class="nc">&nbsp;        t4 = new JTextField(&quot;&quot;);</b>
+<b class="nc">&nbsp;        t5 = new JTextField(&quot;&quot;);</b>
+<b class="nc">&nbsp;        t6 = new JTextField(&quot;&quot;);</b>
+&nbsp;
+<b class="nc">&nbsp;        b1 = new JButton(&quot;Add&quot;);</b>
+<b class="nc">&nbsp;        b2 = new JButton(&quot;Cancel&quot;);</b>
+<b class="nc">&nbsp;        baggageButton = new JButton(&quot;Baggage Screen&quot;);</b>
+&nbsp;
+<b class="nc">&nbsp;        l1.setBounds(50, 50, 150, 20);</b>
+<b class="nc">&nbsp;        l2.setBounds(50, 100, 150, 20);</b>
+<b class="nc">&nbsp;        l3.setBounds(50, 150, 150, 20);</b>
+<b class="nc">&nbsp;        l4.setBounds(50, 200, 150, 20);</b>
+<b class="nc">&nbsp;        l5.setBounds(50, 250, 150, 20);</b>
+<b class="nc">&nbsp;        l6.setBounds(50, 300, 150, 20);</b>
+&nbsp;
+<b class="nc">&nbsp;        t1.setBounds(250, 50, 150, 20);</b>
+<b class="nc">&nbsp;        t2.setBounds(250, 100, 150, 20);</b>
+<b class="nc">&nbsp;        t3.setBounds(250, 150, 150, 20);</b>
+<b class="nc">&nbsp;        t4.setBounds(250, 200, 150, 20);</b>
+<b class="nc">&nbsp;        t5.setBounds(250, 250, 150, 20);</b>
+<b class="nc">&nbsp;        t6.setBounds(250, 300, 150, 20);</b>
+&nbsp;
+<b class="nc">&nbsp;        b1.setBounds(150, 400, 80, 30);</b>
+<b class="nc">&nbsp;        b2.setBounds(250, 400, 80, 30);</b>
+<b class="nc">&nbsp;        baggageButton.setBounds(150, 450, 180, 30);</b>
+&nbsp;
+<b class="nc">&nbsp;        passengerPanel.add(l1);</b>
+<b class="nc">&nbsp;        passengerPanel.add(l2);</b>
+<b class="nc">&nbsp;        passengerPanel.add(l3);</b>
+<b class="nc">&nbsp;        passengerPanel.add(l4);</b>
+<b class="nc">&nbsp;        passengerPanel.add(l5);</b>
+<b class="nc">&nbsp;        passengerPanel.add(l6);</b>
+<b class="nc">&nbsp;        passengerPanel.add(t1);</b>
+<b class="nc">&nbsp;        passengerPanel.add(t2);</b>
+<b class="nc">&nbsp;        passengerPanel.add(t3);</b>
+<b class="nc">&nbsp;        passengerPanel.add(t4);</b>
+<b class="nc">&nbsp;        passengerPanel.add(t5);</b>
+<b class="nc">&nbsp;        passengerPanel.add(t6);</b>
+<b class="nc">&nbsp;        passengerPanel.add(b1);</b>
+<b class="nc">&nbsp;        passengerPanel.add(b2);</b>
+<b class="nc">&nbsp;        passengerPanel.add(baggageButton);</b>
+&nbsp;
+<b class="nc">&nbsp;        b1.addActionListener(this);</b>
+<b class="nc">&nbsp;        b2.addActionListener(this);</b>
+<b class="nc">&nbsp;        baggageButton.addActionListener(this);</b>
+&nbsp;
+&nbsp;        // Baggage Panel
+<b class="nc">&nbsp;        baggagePanel = new JPanel();</b>
+<b class="nc">&nbsp;        BaggageScreenPanel baggageScreenPanel = new BaggageScreenPanel();</b>
+<b class="nc">&nbsp;        baggagePanel.add(baggageScreenPanel);</b>
+&nbsp;
+&nbsp;        // CardLayout to switch between panels
+<b class="nc">&nbsp;        cardLayout = new CardLayout();</b>
+<b class="nc">&nbsp;        con.setLayout(cardLayout);</b>
+&nbsp;
+<b class="nc">&nbsp;        con.add(passengerPanel, &quot;Passenger&quot;);</b>
+<b class="nc">&nbsp;        con.add(baggagePanel, &quot;Baggage&quot;);</b>
+&nbsp;
+<b class="nc">&nbsp;        setVisible(true);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public void actionPerformed(ActionEvent ae) {
+<b class="nc">&nbsp;        if (ae.getSource().equals(b1)) {</b>
+&nbsp;            // apply insert command
+<b class="nc">&nbsp;            t1.setText(&quot;&quot;);</b>
+<b class="nc">&nbsp;            t2.setText(&quot;&quot;);</b>
+<b class="nc">&nbsp;            t3.setText(&quot;&quot;);</b>
+<b class="nc">&nbsp;            t4.setText(&quot;&quot;);</b>
+<b class="nc">&nbsp;            t5.setText(&quot;&quot;);</b>
+<b class="nc">&nbsp;            t6.setText(&quot;&quot;);</b>
+<b class="nc">&nbsp;            JOptionPane.showMessageDialog(null, &quot;Passenger added successfully&quot;);</b>
+&nbsp;        }
+&nbsp;
+<b class="nc">&nbsp;        if (ae.getSource().equals(b2)) {</b>
+<b class="nc">&nbsp;            t1.setText(&quot;&quot;);</b>
+<b class="nc">&nbsp;            t2.setText(&quot;&quot;);</b>
+<b class="nc">&nbsp;            t3.setText(&quot;&quot;);</b>
+<b class="nc">&nbsp;            t4.setText(&quot;&quot;);</b>
+<b class="nc">&nbsp;            t5.setText(&quot;&quot;);</b>
+<b class="nc">&nbsp;            t6.setText(&quot;&quot;);</b>
+&nbsp;        }
+&nbsp;
+<b class="nc">&nbsp;        if (ae.getSource().equals(baggageButton)) {</b>
+<b class="nc">&nbsp;            cardLayout.show(con, &quot;Baggage&quot;);</b>
+&nbsp;        }
+&nbsp;    }
+&nbsp;
+&nbsp;    // Baggage Screen Panel
+&nbsp;    private class BaggageScreenPanel extends JPanel {
+&nbsp;        private JLabel baggageInfoLabel;
+&nbsp;        private JTextField baggageNumberField;
+&nbsp;        private JButton scanBaggageButton;
+&nbsp;
+<b class="nc">&nbsp;        public BaggageScreenPanel() {</b>
+<b class="nc">&nbsp;            setLayout(new FlowLayout());</b>
+&nbsp;
+<b class="nc">&nbsp;            baggageInfoLabel = new JLabel(&quot;Baggage Information:&quot;);</b>
+<b class="nc">&nbsp;            baggageNumberField = new JTextField(10);</b>
+<b class="nc">&nbsp;            scanBaggageButton = new JButton(&quot;Scan Baggage&quot;);</b>
+&nbsp;
+<b class="nc">&nbsp;            add(baggageInfoLabel);</b>
+<b class="nc">&nbsp;            add(baggageNumberField);</b>
+<b class="nc">&nbsp;            add(scanBaggageButton);</b>
+&nbsp;
+<b class="nc">&nbsp;            scanBaggageButton.addActionListener(new ActionListener() {</b>
+&nbsp;                @Override
+&nbsp;                public void actionPerformed(ActionEvent e) {
+<b class="nc">&nbsp;                    String baggageNumber = baggageNumberField.getText();</b>
+&nbsp;                    /*
+&nbsp;                    apply algorithms or operations on baggageNumber as per your requirements
+&nbsp;                    */
+&nbsp;
+&nbsp;                    // Display message for confirmation
+<b class="nc">&nbsp;                    JOptionPane.showMessageDialog(BaggageScreenPanel.this,</b>
+&nbsp;                            &quot;Baggage scanned: &quot; + baggageNumber,
+&nbsp;                            &quot;Baggage Scanning&quot;, JOptionPane.INFORMATION_MESSAGE);
+&nbsp;                }
+&nbsp;            });
+&nbsp;        }
+&nbsp;    }
+&nbsp;}
+&nbsp;
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-07-27 15:40</div>
+</div>
+</body>
+</html>

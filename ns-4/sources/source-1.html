@@ -1,0 +1,167 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > Airport</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">WrightFlightManager.MODEL</a>
+</div>
+
+<h1>Coverage Summary for Class: Airport (WrightFlightManager.MODEL)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">Airport</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (4/4)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (6/6)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package WrightFlightManager.MODEL;
+&nbsp;
+&nbsp;/**
+&nbsp; * @class Airport
+&nbsp; * @brief This class represents an airport with its ID and name.
+&nbsp; *
+&nbsp; * The Airport class encapsulates information about an airport, including its unique
+&nbsp; * three-letter airport code (ID) and its name. Objects of this class can be used to
+&nbsp; * store and retrieve airport-related information in the WrightFlightManager application.
+&nbsp; */
+&nbsp;public class Airport {
+&nbsp;    private final String airportID;
+&nbsp;    private String airportName;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * @brief The Airport constructor creates a new Airport object and requires both parameters
+&nbsp;     * (cannot build an Airport object with a non-parameterized constructor).
+&nbsp;     * &lt;p&gt;
+&nbsp;     * The Airport constructor creates a new Airport object and requires both parameters
+&nbsp;     * (cannot build an Airport object with a non-parameterized constructor)
+&nbsp;     * Linked Issue: #71 https://github.com/WSUCEG-7140/TeamF/issues/71
+&nbsp;     * @param airportID     A String representing the three-letter airport code
+&nbsp;     * @param airportName   A String representing the name of the airport identified by the
+&nbsp;     *                      three-letter airport code
+&nbsp;     */
+<b class="fc">&nbsp;    public Airport(String airportID, String airportName) {</b>
+<b class="fc">&nbsp;        this.airportID = airportID;</b>
+<b class="fc">&nbsp;        this.airportName = airportName;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * @brief Retrieves the airport&#39;s ID.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * The getAirportId method takes no parameters and returns the airport&#39;s ID
+&nbsp;     * Linked Issue: #71 https://github.com/WSUCEG-7140/TeamF/issues/71
+&nbsp;     * @return  A String representing the three-letter airport ID code
+&nbsp;     */
+&nbsp;    public String getAirportID() {
+<b class="fc">&nbsp;        return airportID;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * @brief Retrieves the airport&#39;s name.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * The getAirportName method takes no parameters and returns the airport&#39;s name
+&nbsp;     * Linked Issue: #71 https://github.com/WSUCEG-7140/TeamF/issues/71
+&nbsp;     * @return  A String representing the name of the airport
+&nbsp;     */
+&nbsp;    public String getAirportName() {
+<b class="fc">&nbsp;        return airportName;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * @brief Sets the name of the airport to the provided value.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * The setAirportName method takes a single String as a parameter and sets the name
+&nbsp;     * of the airport to that String
+&nbsp;     * Linked Issue: #71 https://github.com/WSUCEG-7140/TeamF/issues/71
+&nbsp;     * @param airportName   A String representing the new name for the airport
+&nbsp;     */
+&nbsp;    public void setAirportName(String airportName) {
+<b class="fc">&nbsp;        this.airportName = airportName;</b>
+&nbsp;    }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-07-27 15:40</div>
+</div>
+</body>
+</html>

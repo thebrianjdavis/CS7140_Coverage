@@ -1,0 +1,124 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > iAuthorizer</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">WrightFlightManager.SECURITY</a>
+</div>
+
+<h1>Coverage Summary for Class: iAuthorizer (WrightFlightManager.SECURITY)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+</tr>
+<tr>
+  <td class="name">iAuthorizer</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package WrightFlightManager.SECURITY;
+&nbsp;
+&nbsp;import java.security.NoSuchAlgorithmException;
+&nbsp;import java.security.NoSuchProviderException;
+&nbsp;
+&nbsp;/**
+&nbsp; * @interface iAuthorizer
+&nbsp; * @brief This interface defines the contract for password hashing and verification operations.
+&nbsp; *
+&nbsp; * The iAuthorizer interface provides a set of methods for computing hash values for passwords,
+&nbsp; * generating random salts, and verifying if a provided plaintext password matches a stored hash
+&nbsp; * and salt. Classes that implement this interface are expected to provide concrete implementations
+&nbsp; * for these methods, allowing customized password security mechanisms.
+&nbsp; */
+&nbsp;public interface iAuthorizer {
+&nbsp;
+&nbsp;    /**
+&nbsp;     * @brief Computes a salted/hashed password based on the plaintext password and the salt.
+&nbsp;     *
+&nbsp;     * This method takes a plaintext password and a salt as input and returns a salted/hashed password.
+&nbsp;     * The salt is used as an additional input to a one-way function that hashes the password.
+&nbsp;     *
+&nbsp;     * @param plaintextPassword The password that the user entered.
+&nbsp;     * @param salt The salt, a random string of characters, used as an additional input to a
+&nbsp;     *             one-way function that hashes the password.
+&nbsp;     * @return A hash of the password and salt.
+&nbsp;     */
+&nbsp;    String computeHash(String plaintextPassword, String salt);
+&nbsp;
+&nbsp;    /**
+&nbsp;     * @brief Generates a random salt as an array of random integers and casts it to a String.
+&nbsp;     *
+&nbsp;     * This method generates a random salt to be used in password hashing. The salt is typically a
+&nbsp;     * random string of characters that adds randomness to the hash, making it more secure against
+&nbsp;     * various attacks.
+&nbsp;     *
+&nbsp;     * @note The specific algorithm and provider used for salt generation may depend on the implementation.
+&nbsp;     * @return The random salt values as a String.
+&nbsp;     * @throws NoSuchAlgorithmException Occurs if the salt generation algorithm is missing.
+&nbsp;     * @throws NoSuchProviderException Occurs if the algorithm provider is missing.
+&nbsp;     */
+&nbsp;    String createSalt() throws NoSuchAlgorithmException, NoSuchProviderException;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * @brief Verifies if the provided plaintext password matches the stored hash and salt.
+&nbsp;     *
+&nbsp;     * This method takes a stored hash, a stored salt, and a user-provided plaintext password as input.
+&nbsp;     * It computes the hash for the provided password using the stored salt and then compares it with the
+&nbsp;     * stored hash to determine if they match.
+&nbsp;     *
+&nbsp;     * @param hash The hash stored in a local file or database.
+&nbsp;     * @param salt The salt stored in a local file or database.
+&nbsp;     * @param plaintextPassword The password provided by a user.
+&nbsp;     * @return A boolean value representing if the password&#39;s hash matches the hash for the stored password.
+&nbsp;     */
+&nbsp;    boolean verifyHashMatch(String hash, String salt, String plaintextPassword);
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-07-27 15:40</div>
+</div>
+</body>
+</html>

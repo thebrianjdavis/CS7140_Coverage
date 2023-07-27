@@ -1,0 +1,428 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > FlightFileDAO</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">WrightFlightManager.DAO</a>
+</div>
+
+<h1>Coverage Summary for Class: FlightFileDAO (WrightFlightManager.DAO)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">FlightFileDAO</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (9/9)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    97.3%
+  </span>
+  <span class="absValue">
+    (110/113)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package WrightFlightManager.DAO;
+&nbsp;
+&nbsp;import WrightFlightManager.MODEL.Flight;
+&nbsp;import WrightFlightManager.MODEL.Role;
+&nbsp;
+&nbsp;import java.io.FileWriter;
+&nbsp;import java.io.IOException;
+&nbsp;import java.nio.file.Path;
+&nbsp;import java.text.DateFormat;
+&nbsp;import java.text.SimpleDateFormat;
+&nbsp;import java.util.*;
+&nbsp;
+&nbsp;/**
+&nbsp; * @class FlightFileDAO
+&nbsp; * @brief Handles data access operations related to the Flight model using
+&nbsp;a file-based data storage system.
+&nbsp; * &lt;p&gt;
+&nbsp; * The FlightFileDAO class implements the iFlightDAO interface to manage
+&nbsp;data related to the &quot;Flight&quot; entity
+&nbsp; * using a file-based storage system. It represents the Data Access Object
+&nbsp;(DAO) pattern in the context
+&nbsp; * of managing roles.
+&nbsp; * &lt;p&gt;
+&nbsp; * For more information about the Data Access Object (DAO) pattern, please
+&nbsp;refer to
+&nbsp; * the Wikipedia page:
+&nbsp; * @ref https://en.wikipedia.org/wiki/Data_access_object
+&nbsp; */
+&nbsp;public class FlightFileDAO implements iFlightDAO {
+&nbsp;
+&nbsp;    /**
+&nbsp;     * @brief Name of the file storing flight data.
+&nbsp;     */
+&nbsp;    private final String flightFileName;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * @brief Default constructor for FlightFileDAO.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * This constructor sets the default path for the file storing flight
+&nbsp;    data.
+&nbsp;     * The default path is
+&nbsp;    &quot;src/main/java/WrightFlightManager/FILES/Flights.psv&quot;.
+&nbsp;     * Linked Issue: #7 https://github.com/WSUCEG-7140/TeamF/issues/7
+&nbsp;     */
+<b class="fc">&nbsp;    public FlightFileDAO() {</b>
+<b class="fc">&nbsp;        flightFileName =</b>
+&nbsp;                &quot;src/main/java/WrightFlightManager/FILES/Flights.psv&quot;;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * @brief Parameterized constructor for FlightFileDAO.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * This constructor allows specifying a custom file path for storing
+&nbsp;    flight data.
+&nbsp;     * Linked Issue: #7 https://github.com/WSUCEG-7140/TeamF/issues/7
+&nbsp;     * @param flightFileName The custom file path for storing flight data.
+&nbsp;     */
+<b class="fc">&nbsp;    public FlightFileDAO(String flightFileName) {</b>
+<b class="fc">&nbsp;        this.flightFileName = flightFileName;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * @brief Adds a new flight to the data storage system.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * This method is responsible for adding a new flight to the data
+&nbsp;    storage system.
+&nbsp;     * The flight information is obtained from the provided Flight object.
+&nbsp;     * Linked Issue: #43 https://github.com/WSUCEG-7140/TeamF/issues/43
+&nbsp;     * @param newFlight The User object representing the new flight to be
+&nbsp;    added.
+&nbsp;     * @return True if the flight is successfully added, false otherwise.
+&nbsp;     */
+&nbsp;    @Override
+&nbsp;    public boolean addNewFlight(Flight newFlight) {
+<b class="fc">&nbsp;        boolean addSuccessful = false;</b>
+<b class="fc">&nbsp;        boolean foundInHashMap = isFlightInFile(newFlight);</b>
+&nbsp;
+<b class="fc">&nbsp;        if (!foundInHashMap) {</b>
+<b class="fc">&nbsp;            HashMap&lt;String, Flight&gt; allFlights = getAllFlights();</b>
+<b class="fc">&nbsp;            allFlights.put(newFlight.getFlightNumber(), newFlight);</b>
+<b class="fc">&nbsp;            addSuccessful = writeToFlightsFile(allFlights);</b>
+&nbsp;        }
+<b class="fc">&nbsp;        return addSuccessful;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * @brief Retrieves all flights from the data storage system.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * This method retrieves all flight records from the file-based data
+&nbsp;    storage system and returns them in
+&nbsp;     * a HashMap where the key is the flight number (a String) and the
+&nbsp;    value is the corresponding Flight object.
+&nbsp;     * Linked Issue: #44 https://github.com/WSUCEG-7140/TeamF/issues/44
+&nbsp;     * @return A HashMap&lt;String, Flight&gt; containing all flight records in
+&nbsp;    the data storage system.
+&nbsp;     */
+&nbsp;    @Override
+&nbsp;    public HashMap&lt;String, Flight&gt; getAllFlights(){
+<b class="fc">&nbsp;        HashMap&lt;String, Flight&gt; allFlights = new HashMap&lt;&gt;();</b>
+&nbsp;
+&nbsp;        try {
+<b class="fc">&nbsp;            RoleFileDAO roleDAO = new RoleFileDAO();</b>
+<b class="fc">&nbsp;            HashMap&lt;Integer, Role&gt; allRoles = roleDAO.getAllRoles();</b>
+<b class="fc">&nbsp;            Path flightFilePath = Path.of(flightFileName);</b>
+<b class="fc">&nbsp;            Scanner fileRead = new Scanner(flightFilePath);</b>
+<b class="fc">&nbsp;            while (fileRead.hasNextLine()) {</b>
+<b class="fc">&nbsp;                String line = fileRead.nextLine();</b>
+<b class="fc">&nbsp;                String[] splitLine = line.split(&quot;\\|&quot;);</b>
+<b class="fc">&nbsp;                if (splitLine.length == 12) {</b>
+<b class="fc">&nbsp;                    String flightNumber = splitLine[0];</b>
+<b class="fc">&nbsp;                    String originAirport = splitLine[1];</b>
+<b class="fc">&nbsp;                    String destinationAirport = splitLine[2];</b>
+<b class="fc">&nbsp;                    String planeType = splitLine[3];</b>
+<b class="fc">&nbsp;                    Date plannedDeparture =</b>
+<b class="fc">&nbsp;                            parseDateFromString(splitLine[4]);</b>
+<b class="fc">&nbsp;                    Date plannedArrival =</b>
+<b class="fc">&nbsp;                            parseDateFromString(splitLine[5]);</b>
+<b class="fc">&nbsp;                    Date actualDeparture =</b>
+<b class="fc">&nbsp;                            parseDateFromString(splitLine[6]);</b>
+<b class="fc">&nbsp;                    Date actualArrival =</b>
+<b class="fc">&nbsp;                            parseDateFromString(splitLine[7]);</b>
+<b class="fc">&nbsp;                    String departureGate = splitLine[8];</b>
+<b class="fc">&nbsp;                    String arrivalGate = splitLine[9];</b>
+<b class="fc">&nbsp;                    int firstClassSeatsFilled =</b>
+<b class="fc">&nbsp;                            Integer.parseInt(splitLine[10]);</b>
+<b class="fc">&nbsp;                    int coachClassSeatsFilled =</b>
+<b class="fc">&nbsp;                            Integer.parseInt(splitLine[11]);</b>
+<b class="fc">&nbsp;                    allFlights.put(flightNumber, new Flight(</b>
+&nbsp;                            flightNumber,
+&nbsp;                            originAirport,
+&nbsp;                            destinationAirport,
+&nbsp;                            planeType,
+&nbsp;                            plannedDeparture,
+&nbsp;                            plannedArrival,
+&nbsp;                            actualDeparture,
+&nbsp;                            actualArrival,
+&nbsp;                            departureGate,
+&nbsp;                            arrivalGate,
+&nbsp;                            firstClassSeatsFilled,
+&nbsp;                            coachClassSeatsFilled
+&nbsp;                    ));
+&nbsp;                }
+<b class="fc">&nbsp;            }</b>
+<b class="fc">&nbsp;            fileRead.close();</b>
+<b class="fc">&nbsp;        } catch (IOException e) {</b>
+&nbsp;            // Ignore
+<b class="fc">&nbsp;        }</b>
+<b class="fc">&nbsp;        return allFlights;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * @brief Updates an existing flight&#39;s information in the data storage
+&nbsp;    system.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * This method is responsible for updating an existing flight&#39;s
+&nbsp;    information in the data storage system.
+&nbsp;     * The new flight information is obtained from the provided Flight
+&nbsp;    object, which should have the same flight
+&nbsp;     * number as the one to be updated.
+&nbsp;     * Linked Issue: #45 https://github.com/WSUCEG-7140/TeamF/issues/45
+&nbsp;     * @param updatedFlight The Flight object representing the updated
+&nbsp;    flight information.
+&nbsp;     * @return True if the flight information is successfully updated,
+&nbsp;    false otherwise.
+&nbsp;     */
+&nbsp;    @Override
+&nbsp;    public boolean updateFlight(Flight updatedFlight) {
+<b class="fc">&nbsp;        boolean updateSuccessful = false;</b>
+&nbsp;
+<b class="fc">&nbsp;        if (deleteFlight(updatedFlight)) {</b>
+<b class="fc">&nbsp;            updateSuccessful = addNewFlight(updatedFlight);</b>
+&nbsp;        }
+&nbsp;
+<b class="fc">&nbsp;        return updateSuccessful;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * @brief Deletes a flight from the data storage system.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * This method is used to delete a flight from the file-based data
+&nbsp;    storage system. The flight to be deleted
+&nbsp;     * is identified by the provided Flight object, which should have the
+&nbsp;    same flight number as the one to be
+&nbsp;     * deleted.
+&nbsp;     * Linked Issue: #46 https://github.com/WSUCEG-7140/TeamF/issues/46
+&nbsp;     * @param flightToDelete The Flight object representing the flight to
+&nbsp;    be deleted.
+&nbsp;     * @return True if the flight is successfully deleted, false
+&nbsp;    otherwise.
+&nbsp;     */
+&nbsp;    @Override
+&nbsp;    public boolean deleteFlight(Flight flightToDelete) {
+<b class="fc">&nbsp;        boolean deleteSuccessful = false;</b>
+<b class="fc">&nbsp;        boolean removedFromHashMap = false;</b>
+&nbsp;
+<b class="fc">&nbsp;        HashMap&lt;String, Flight&gt; allFlights = getAllFlights();</b>
+&nbsp;
+<b class="fc">&nbsp;        Iterator&lt;Map.Entry&lt;String, Flight&gt;&gt; itr = allFlights.entrySet().iterator();</b>
+&nbsp;
+<b class="fc">&nbsp;        while(itr.hasNext())</b>
+&nbsp;        {
+<b class="fc">&nbsp;            Map.Entry&lt;String, Flight&gt; entry = itr.next();</b>
+<b class="fc">&nbsp;            if (entry.getKey().equals(flightToDelete.getFlightNumber())) {</b>
+<b class="fc">&nbsp;                itr.remove();</b>
+<b class="fc">&nbsp;                removedFromHashMap = true;</b>
+&nbsp;            }
+<b class="fc">&nbsp;        }</b>
+<b class="fc">&nbsp;        if (removedFromHashMap) {</b>
+<b class="fc">&nbsp;            deleteSuccessful = writeToFlightsFile(allFlights);</b>
+&nbsp;        }
+&nbsp;
+&nbsp;
+<b class="fc">&nbsp;        return deleteSuccessful;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * @brief Helper method to check if a Flight is in the flights file.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * The isFlightInFile method is a helper method that takes a flight as
+&nbsp;    a parameter to check if a that
+&nbsp;     * Flight is in the flights file by searching for a match of the
+&nbsp;    flight number
+&nbsp;     * Linked Issue: #43 https://github.com/WSUCEG-7140/TeamF/issues/43
+&nbsp;     * @param checkFlight This represents the Flight being searched for
+&nbsp;    within the file
+&nbsp;     * @return Returns true if the flight was found in the file
+&nbsp;     */
+&nbsp;    private boolean isFlightInFile(Flight checkFlight) {
+<b class="fc">&nbsp;        boolean flightFound = false;</b>
+<b class="fc">&nbsp;        HashMap&lt;String, Flight&gt; allFlights = getAllFlights();</b>
+&nbsp;
+<b class="fc">&nbsp;        for(Map.Entry&lt;String, Flight&gt; entry : allFlights.entrySet()) {</b>
+<b class="fc">&nbsp;            if (entry.getKey().equals(checkFlight.getFlightNumber())) {</b>
+<b class="nc">&nbsp;                flightFound = true;</b>
+<b class="nc">&nbsp;                break;</b>
+&nbsp;            }
+<b class="fc">&nbsp;        }</b>
+&nbsp;
+<b class="fc">&nbsp;        return flightFound;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * @brief Helper method to write over the file specified by the
+&nbsp;    flightFileName field with a new list of
+&nbsp;     * flights.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * The writeToFlightsFile is a helper method to write over the file
+&nbsp;    specified by the flightFileName
+&nbsp;     * field with a new list of flights.
+&nbsp;     * Linked Issue: #43 https://github.com/WSUCEG-7140/TeamF/issues/43
+&nbsp;     * @param updatedFlights This represents the new list of flights to be
+&nbsp;    written to the flights file
+&nbsp;     * @return Returns true if successfully written to flights file
+&nbsp;     */
+&nbsp;    private boolean writeToFlightsFile(HashMap&lt;String, Flight&gt; updatedFlights) {
+<b class="fc">&nbsp;        boolean writeSuccessful = false;</b>
+&nbsp;
+&nbsp;        try {
+<b class="fc">&nbsp;            DateFormat dateFormat = new SimpleDateFormat(&quot;yyyy-mm-dd hh:mm:ss&quot;);</b>
+&nbsp;
+<b class="fc">&nbsp;            Path filePath = Path.of(flightFileName);</b>
+<b class="fc">&nbsp;            FileWriter fw = new FileWriter(filePath.toFile(), false);</b>
+<b class="fc">&nbsp;            for (Map.Entry&lt;String, Flight&gt; entry : updatedFlights.entrySet()) {</b>
+<b class="fc">&nbsp;                Flight temp = entry.getValue();</b>
+<b class="fc">&nbsp;                StringBuilder sb = new StringBuilder();</b>
+<b class="fc">&nbsp;                sb.append(temp.getFlightNumber()).append(&quot;|&quot;);</b>
+<b class="fc">&nbsp;                sb.append(temp.getOriginAirport()).append(&quot;|&quot;);</b>
+<b class="fc">&nbsp;                sb.append(temp.getDestinationAirport()).append(&quot;|&quot;);</b>
+<b class="fc">&nbsp;                sb.append(temp.getPlaneType()).append(&quot;|&quot;);</b>
+<b class="fc">&nbsp;                String plannedDeparture = (temp.getPlannedDeparture() == null) ? &quot;&quot; : dateFormat.format(temp.getPlannedDeparture());</b>
+<b class="fc">&nbsp;                sb.append(plannedDeparture).append(&quot;|&quot;);</b>
+<b class="fc">&nbsp;                String plannedArrival = (temp.getPlannedArrival() == null) ? &quot;&quot; : dateFormat.format(temp.getPlannedArrival());</b>
+<b class="fc">&nbsp;                sb.append(plannedArrival).append(&quot;|&quot;);</b>
+<b class="fc">&nbsp;                String actualDeparture = (temp.getActualDeparture() == null) ? &quot;&quot; : dateFormat.format(temp.getActualDeparture());</b>
+<b class="fc">&nbsp;                sb.append(actualDeparture).append(&quot;|&quot;);</b>
+<b class="fc">&nbsp;                String actualArrival = (temp.getActualArrival() == null) ? &quot;&quot; : dateFormat.format(temp.getActualArrival());</b>
+<b class="fc">&nbsp;                sb.append(actualArrival).append(&quot;|&quot;);</b>
+<b class="fc">&nbsp;                sb.append(temp.getDepartureGate()).append(&quot;|&quot;);</b>
+<b class="fc">&nbsp;                sb.append(temp.getArrivalGate()).append(&quot;|&quot;);</b>
+<b class="fc">&nbsp;                sb.append(temp.getFirstClassSeatsFilled()).append(&quot;|&quot;);</b>
+<b class="fc">&nbsp;                sb.append(temp.getCoachClassSeatsFilled()).append(&quot;\n&quot;);</b>
+<b class="fc">&nbsp;                fw.write(sb.toString());</b>
+<b class="fc">&nbsp;            }</b>
+<b class="fc">&nbsp;            fw.flush();</b>
+<b class="fc">&nbsp;            fw.close();</b>
+<b class="fc">&nbsp;            writeSuccessful = true;</b>
+<b class="nc">&nbsp;        } catch (IOException e) {</b>
+&nbsp;            // Ignored
+<b class="fc">&nbsp;        }</b>
+&nbsp;
+<b class="fc">&nbsp;        return writeSuccessful;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * @brief Parses a date from a string representation.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * This helper method takes a date string in the format &quot;yyyy-MM-ddHH:mm:ss&quot; and converts it into a
+&nbsp;     * Date object. The expected input format for the date string is&quot;yyyy-MM-dd HH:mm:ss&quot;. If the input date
+&nbsp;     * string is empty or null, the method will return null.
+&nbsp;     * @param dateToParse The date string to be parsed in the format&quot;yyyy-MM-dd HH:mm:ss&quot;.
+&nbsp;     * @return A Date object representing the parsed date, or null if the input date string is empty or null.
+&nbsp;     */
+&nbsp;    private Date parseDateFromString(String dateToParse) {
+&nbsp;
+<b class="fc">&nbsp;        Date dateFromString = null;</b>
+&nbsp;
+<b class="fc">&nbsp;        if (dateToParse.length() &gt;= 1) {</b>
+<b class="fc">&nbsp;            String[] splitByHyphen = dateToParse.split(&quot;-&quot;);</b>
+<b class="fc">&nbsp;            int year = Integer.parseInt(splitByHyphen[0]);</b>
+<b class="fc">&nbsp;            int month = Integer.parseInt(splitByHyphen[1]);</b>
+<b class="fc">&nbsp;            String[] stringBeforeSpace = splitByHyphen[2].split(&quot;\\s&quot;);</b>
+<b class="fc">&nbsp;            int day = Integer.parseInt(stringBeforeSpace[0]);</b>
+<b class="fc">&nbsp;            String[] splitByColon = stringBeforeSpace[1].split(&quot;:&quot;);</b>
+<b class="fc">&nbsp;            int hours = Integer.parseInt(splitByColon[0]);</b>
+<b class="fc">&nbsp;            int minutes = Integer.parseInt(splitByColon[1]);</b>
+<b class="fc">&nbsp;            int seconds = Integer.parseInt(splitByColon[2]);</b>
+&nbsp;
+<b class="fc">&nbsp;            dateFromString = new Date(year, month, day, hours, minutes,</b>
+&nbsp;                    seconds);
+&nbsp;        }
+&nbsp;
+<b class="fc">&nbsp;        return dateFromString;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-07-27 15:40</div>
+</div>
+</body>
+</html>

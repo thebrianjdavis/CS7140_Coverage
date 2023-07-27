@@ -1,0 +1,216 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > FlightAttendantView</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">WrightFlightManager.GUI</a>
+</div>
+
+<h1>Coverage Summary for Class: FlightAttendantView (WrightFlightManager.GUI)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">FlightAttendantView</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/13)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">FlightAttendantView$FlightAttendantPanel</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/9)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">FlightAttendantView$FlightAttendantPanel$1</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/3)
+  </span>
+</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/4)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/25)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package WrightFlightManager.GUI;
+&nbsp;
+&nbsp;import javax.swing.*;
+&nbsp;import java.awt.*;
+&nbsp;import java.awt.event.ActionEvent;
+&nbsp;import java.awt.event.ActionListener;
+&nbsp;
+&nbsp;//change functionality according to available database
+&nbsp;//Issue no 49
+&nbsp;public class FlightAttendantView extends JFrame {
+&nbsp;    private JPanel mainPanel;
+&nbsp;    private CardLayout cardLayout;
+&nbsp;    private FlightAttendantPanel flightAttendantPanel;
+&nbsp;
+<b class="nc">&nbsp;    public FlightAttendantView() {</b>
+<b class="nc">&nbsp;        setTitle(&quot;Flight Control System&quot;);</b>
+<b class="nc">&nbsp;        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);</b>
+<b class="nc">&nbsp;        setSize(600, 400);</b>
+<b class="nc">&nbsp;        setResizable(false);</b>
+<b class="nc">&nbsp;        setLocationRelativeTo(null);</b>
+&nbsp;
+<b class="nc">&nbsp;        mainPanel = new JPanel();</b>
+<b class="nc">&nbsp;        cardLayout = new CardLayout();</b>
+<b class="nc">&nbsp;        mainPanel.setLayout(cardLayout);</b>
+&nbsp;
+<b class="nc">&nbsp;        flightAttendantPanel = new FlightAttendantPanel();</b>
+<b class="nc">&nbsp;        mainPanel.add(flightAttendantPanel, &quot;FlightAttendantPanel&quot;);</b>
+&nbsp;
+<b class="nc">&nbsp;        getContentPane().add(mainPanel);</b>
+&nbsp;
+<b class="nc">&nbsp;        setVisible(true);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    //create a FlightAttendantPanel
+&nbsp;    private class FlightAttendantPanel extends JPanel {
+&nbsp;        private JLabel flightInfoLabel;
+&nbsp;        private JTextField flightNumberField;
+&nbsp;        private JButton assignSeatButton;
+&nbsp;
+<b class="nc">&nbsp;        public FlightAttendantPanel() {</b>
+<b class="nc">&nbsp;            setLayout(new FlowLayout());</b>
+&nbsp;
+<b class="nc">&nbsp;            flightInfoLabel = new JLabel(&quot;Flight Information:&quot;);</b>
+<b class="nc">&nbsp;            flightNumberField = new JTextField(10);</b>
+<b class="nc">&nbsp;            assignSeatButton = new JButton(&quot;Assign Seat&quot;);</b>
+&nbsp;
+<b class="nc">&nbsp;            add(flightInfoLabel);</b>
+<b class="nc">&nbsp;            add(flightNumberField);</b>
+<b class="nc">&nbsp;            add(assignSeatButton);</b>
+&nbsp;
+<b class="nc">&nbsp;            assignSeatButton.addActionListener(new ActionListener() {</b>
+&nbsp;                @Override
+&nbsp;                public void actionPerformed(ActionEvent e) {
+<b class="nc">&nbsp;                    String flightNumber = flightNumberField.getText();</b>
+&nbsp;                    /* add other data as per the database
+&nbsp;                    ---
+&nbsp;					---
+&nbsp;					*/
+&nbsp;                    // Display message for confirmation
+<b class="nc">&nbsp;                    JOptionPane.showMessageDialog(FlightAttendantPanel.this,</b>
+&nbsp;                            &quot;Seat assigned for flight: &quot; + flightNumber,
+&nbsp;                            &quot;Seat Assignment&quot;, JOptionPane.INFORMATION_MESSAGE);
+&nbsp;                }
+&nbsp;            });
+&nbsp;        }
+&nbsp;    }
+&nbsp;}
+&nbsp;
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-07-27 15:40</div>
+</div>
+</body>
+</html>
